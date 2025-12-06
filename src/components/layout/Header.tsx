@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,6 +31,18 @@ const Header = () => {
               Your Tech Solution Partner
             </span>
           </Link>
+
+          {/* Search Box */}
+          <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search..."
+                className="w-full pl-10 pr-4 py-2 bg-[#374151] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
+              />
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
