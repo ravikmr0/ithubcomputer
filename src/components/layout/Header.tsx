@@ -1,0 +1,99 @@
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Products', path: '/products' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
+
+  return (
+    <header className="sticky top-0 z-50 bg-[#1F2937] text-white shadow-lg">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link to="/" className="flex flex-col group">
+            <span className="font-display text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+              IT HUB Computer
+            </span>
+            <span className="text-xs text-gray-300 font-mono-accent tracking-wider uppercase">
+              Your Tech Solution Partner
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
+                  isActive(link.path) ? 'text-[#3B82F6]' : 'text-white'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <a href="tel:+1234567890">
+              <Button className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press shadow-lg hover:shadow-xl font-semibold">
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </Button>
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#1F2937] border-t border-gray-700">
+          <nav className="px-6 py-4 space-y-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`block text-base font-medium transition-colors hover:text-[#3B82F6] ${
+                  isActive(link.path) ? 'text-[#3B82F6]' : 'text-white'
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <a href="tel:+1234567890" className="block">
+              <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </Button>
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
