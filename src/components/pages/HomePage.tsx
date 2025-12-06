@@ -35,6 +35,7 @@ import { Badge } from '@/components/ui/badge';
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [categorySlide, setCategorySlide] = useState(0);
 
   const heroSlides = [
     {
@@ -78,6 +79,14 @@ const HomePage = () => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, nextSlide]);
+
+  // Auto-slide for categories (faster - 2 seconds)
+  useEffect(() => {
+    const categoryInterval = setInterval(() => {
+      setCategorySlide((prev) => (prev + 1) % categories.length);
+    }, 2000);
+    return () => clearInterval(categoryInterval);
+  }, []);
 
   const products = [
     {
@@ -190,13 +199,29 @@ const HomePage = () => {
   ];
 
   const brands = [
-    { name: 'Dell', logo: 'D' },
-    { name: 'HP', logo: 'HP' },
-    { name: 'Lenovo', logo: 'L' },
-    { name: 'ASUS', logo: 'A' },
-    { name: 'Acer', logo: 'Ac' },
-    { name: 'MSI', logo: 'M' },
+    { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
+    { name: 'Dell', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg' },
+    { name: 'HP', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg' },
+    { name: 'Lenovo', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg' },
+    { name: 'ASUS', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/ASUS_Logo.svg' },
+    { name: 'Acer', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Acer_2011.svg' },
+    { name: 'MSI', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/13/MSI_Logo.svg' },
+    { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+    { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg' },
+    { name: 'Toshiba', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Toshiba_logo.svg' },
+    { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg' },
+    { name: 'LG', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/20/LG_symbol.svg' },
   ];
+
+  const [brandSlide, setBrandSlide] = useState(0);
+
+  // Auto-slide for brands (3 seconds)
+  useEffect(() => {
+    const brandInterval = setInterval(() => {
+      setBrandSlide((prev) => (prev + 1) % brands.length);
+    }, 3000);
+    return () => clearInterval(brandInterval);
+  }, [brands.length]);
 
   const services = [
     {
@@ -425,27 +450,53 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {categories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <Link
-                  key={index}
-                  to="/products"
-                  className="group flex flex-col items-center p-4 rounded-xl bg-[#F9FAFB] hover:bg-gradient-to-br hover:from-[#1E40AF] hover:to-[#3B82F6] transition-all duration-300 cursor-pointer"
-                >
-                  <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <Icon className="w-7 h-7 text-[#1E40AF] group-hover:text-[#3B82F6]" />
-                  </div>
-                  <span className="font-semibold text-sm text-[#1F2937] group-hover:text-white text-center">
-                    {category.name}
-                  </span>
-                  <span className="text-xs text-[#6B7280] group-hover:text-blue-100">
-                    {category.count} items
-                  </span>
-                </Link>
-              );
-            })}
+          {/* Auto-sliding carousel */}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${categorySlide * (100 / 4)}%)` }}
+            >
+              {/* Duplicate categories for infinite loop effect */}
+              {[...categories, ...categories].map((category, index) => {
+                const Icon = category.icon;
+                return (
+                  <Link
+                    key={index}
+                    to="/products"
+                    className="flex-shrink-0 w-1/2 sm:w-1/4 lg:w-1/8 px-2"
+                    style={{ minWidth: 'calc(100% / 4)', maxWidth: 'calc(100% / 4)' }}
+                  >
+                    <div className="group flex flex-col items-center p-4 rounded-xl bg-[#F9FAFB] hover:bg-gradient-to-br hover:from-[#1E40AF] hover:to-[#3B82F6] transition-all duration-300 cursor-pointer">
+                      <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Icon className="w-7 h-7 text-[#1E40AF] group-hover:text-[#3B82F6]" />
+                      </div>
+                      <span className="font-semibold text-sm text-[#1F2937] group-hover:text-white text-center">
+                        {category.name}
+                      </span>
+                      <span className="text-xs text-[#6B7280] group-hover:text-blue-100">
+                        {category.count} items
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Slide indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {categories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCategorySlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === categorySlide % categories.length
+                    ? 'w-6 bg-[#1E40AF]'
+                    : 'bg-[#D1D5DB] hover:bg-[#9CA3AF]'
+                }`}
+                aria-label={`Go to category ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -570,7 +621,7 @@ const HomePage = () => {
       </section>
 
       {/* Trusted Brands */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1F2937] mb-2">
@@ -578,16 +629,51 @@ const HomePage = () => {
             </h2>
             <p className="text-[#6B7280]">Authorized dealer for leading technology brands</p>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {brands.map((brand, index) => (
-              <div 
-                key={index} 
-                className="w-24 h-24 rounded-xl bg-[#F9FAFB] flex items-center justify-center hover:shadow-lg transition-shadow cursor-pointer group"
-              >
-                <span className="text-2xl font-bold text-[#6B7280] group-hover:text-[#1E40AF] transition-colors">
-                  {brand.logo}
-                </span>
-              </div>
+          
+          {/* Auto-sliding brand carousel */}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${brandSlide * (100 / 6)}%)` }}
+            >
+              {/* Duplicate brands for infinite loop effect */}
+              {[...brands, ...brands].map((brand, index) => (
+                <div 
+                  key={index} 
+                  className="flex-shrink-0 px-4"
+                  style={{ minWidth: 'calc(100% / 6)', maxWidth: 'calc(100% / 6)' }}
+                >
+                  <div className="w-full h-24 rounded-xl bg-[#F9FAFB] flex items-center justify-center hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer group border border-transparent hover:border-[#E5E7EB]">
+                    <img 
+                      src={brand.logo} 
+                      alt={brand.name}
+                      className="h-10 w-auto max-w-[80px] object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.parentElement!.innerHTML = `<span class="text-xl font-bold text-[#6B7280] group-hover:text-[#1E40AF] transition-colors">${brand.name}</span>`;
+                      }}
+                    />
+                  </div>
+                  <p className="text-center text-sm text-[#6B7280] mt-2 font-medium">{brand.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Slide indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {brands.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setBrandSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === brandSlide % brands.length
+                    ? 'w-6 bg-[#1E40AF]'
+                    : 'bg-[#D1D5DB] hover:bg-[#9CA3AF]'
+                }`}
+                aria-label={`Go to brand ${index + 1}`}
+              />
             ))}
           </div>
         </div>
