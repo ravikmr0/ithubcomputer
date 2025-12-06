@@ -284,7 +284,7 @@ const HomePage = () => {
       description: 'Advanced biometric attendance and access control system installation.',
     },
     {
-      icon: Cpu,
+      icon: CPU,
       title: 'Hardware Parts',
       description: 'Genuine computer parts and accessories at competitive prices.',
     },
@@ -364,7 +364,7 @@ const HomePage = () => {
                 </div>
               ))}
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="tel:+1234567890">
+                <a href="tel:+919779286917">
                   <Button size="lg" className="bg-white text-[#1E40AF] hover:bg-gray-100 btn-press text-base px-8 font-bold shadow-2xl hover:shadow-3xl">
                     Call Now
                   </Button>
@@ -373,7 +373,7 @@ const HomePage = () => {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-2 border-white text-white hover:bg-white hover:text-[#1E40AF] btn-press text-base px-8 font-bold backdrop-blur-sm"
+                    className="border-2 border-white text-[#1E40AF] hover:bg-white hover:text-[#1E40AF] btn-press text-base px-8 font-bold backdrop-blur-sm"
                   >
                     View Services
                   </Button>
