@@ -186,26 +186,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* More Products Row */}
-        <div className="border-t border-gray-700 mt-12 pt-8">
-          <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wider">More Products</h4>
-          <div className="flex flex-wrap gap-3">
-            {products.slice(7).map((product) => {
-              const Icon = product.icon;
-              return (
-                <Link
-                  key={product.name}
-                  to="/products"
-                  className="flex items-center px-4 py-2 rounded-full bg-[#374151] hover:bg-[#1E40AF] transition-all duration-300 text-sm text-gray-300 hover:text-white group"
-                >
-                  <Icon className="w-4 h-4 mr-2 text-[#3B82F6] group-hover:text-white transition-colors" />
-                  {product.name}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">

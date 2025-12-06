@@ -6,9 +6,10 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
 const ProductsPage = () => {
-  const [activeCategory, setActiveCategory] = useState('laptops');
+  const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
+    { id: 'all', name: 'All Products' },
     { id: 'laptops', name: 'Laptops & Desktops' },
     { id: 'components', name: 'Components' },
     { id: 'accessories', name: 'Accessories' },
@@ -22,16 +23,22 @@ const ProductsPage = () => {
         title: 'Business Laptops',
         description: 'High-performance laptops for professionals and businesses',
         image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
+        price: 45999,
+        originalPrice: 54999,
       },
       {
         title: 'Gaming Laptops',
         description: 'Powerful gaming laptops with dedicated graphics',
         image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80',
+        price: 89999,
+        originalPrice: 109999,
       },
       {
         title: 'Desktop Computers',
         description: 'Custom-built desktops for home and office use',
         image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&q=80',
+        price: 35999,
+        originalPrice: 42999,
       },
     ],
     components: [
@@ -39,16 +46,22 @@ const ProductsPage = () => {
         title: 'RAM Modules',
         description: 'DDR4 and DDR5 RAM for all systems',
         image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+        price: 12999,
+        originalPrice: 15999,
       },
       {
         title: 'Storage Drives',
         description: 'SSDs and HDDs in various capacities',
         image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
+        price: 7499,
+        originalPrice: 9999,
       },
       {
         title: 'Graphics Cards',
         description: 'Latest GPUs for gaming and professional work',
         image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80',
+        price: 54999,
+        originalPrice: 64999,
       },
     ],
     accessories: [
@@ -56,16 +69,22 @@ const ProductsPage = () => {
         title: 'Keyboards & Mice',
         description: 'Mechanical and wireless input devices',
         image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80',
+        price: 4999,
+        originalPrice: 6999,
       },
       {
         title: 'Monitors',
         description: 'LED and gaming monitors in various sizes',
         image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80',
+        price: 32999,
+        originalPrice: 42999,
       },
       {
         title: 'Headsets',
         description: 'Professional and gaming headsets',
         image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&q=80',
+        price: 3499,
+        originalPrice: 4999,
       },
     ],
     networking: [
@@ -73,16 +92,22 @@ const ProductsPage = () => {
         title: 'Routers',
         description: 'High-speed wireless routers for home and office',
         image: 'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400&q=80',
+        price: 8999,
+        originalPrice: 11999,
       },
       {
         title: 'Network Switches',
         description: 'Managed and unmanaged network switches',
         image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&q=80',
+        price: 5999,
+        originalPrice: 7999,
       },
       {
         title: 'Network Cables',
         description: 'Cat5e, Cat6, and Cat6a ethernet cables',
         image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&q=80',
+        price: 499,
+        originalPrice: 799,
       },
     ],
     surveillance: [
@@ -90,19 +115,27 @@ const ProductsPage = () => {
         title: 'CCTV Cameras',
         description: 'Indoor and outdoor surveillance cameras',
         image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80',
+        price: 3999,
+        originalPrice: 5499,
       },
       {
         title: 'DVR/NVR Systems',
         description: 'Recording systems for surveillance setups',
         image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80',
+        price: 15999,
+        originalPrice: 19999,
       },
       {
         title: 'Biometric Devices',
         description: 'Fingerprint and face recognition systems',
         image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=80',
+        price: 9999,
+        originalPrice: 12999,
       },
     ],
   };
+
+  const allProducts = Object.values(products).flat();
 
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
@@ -124,8 +157,8 @@ const ProductsPage = () => {
       {/* Products Section */}
       <section className="py-20">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <Tabs defaultValue="laptops" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-12 h-auto">
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 mb-12 h-auto">
               {categories.map((category) => (
                 <TabsTrigger
                   key={category.id}
@@ -138,7 +171,42 @@ const ProductsPage = () => {
               ))}
             </TabsList>
 
-            {categories.map((category) => (
+            <TabsContent value="all">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {allProducts.map((product, index) => (
+                  <Card key={index} className="border-none shadow-lg overflow-hidden card-hover">
+                    <div className="aspect-video overflow-hidden bg-gray-200">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="font-display text-xl font-bold text-[#1F2937] mb-2">
+                        {product.title}
+                      </h3>
+                      <p className="text-[#6B7280] leading-relaxed mb-4">
+                        {product.description}
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl font-bold text-[#1E40AF]">₹{product.price.toLocaleString('en-IN')}</span>
+                        {product.originalPrice > product.price && (
+                          <span className="text-sm text-[#6B7280] line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                        )}
+                      </div>
+                    </CardContent>
+                    <CardFooter className="p-6 pt-0">
+                      <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
+                        Buy Now
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {categories.filter(cat => cat.id !== 'all').map((category) => (
               <TabsContent key={category.id} value={category.id}>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {products[category.id as keyof typeof products].map((product, index) => (
@@ -154,16 +222,20 @@ const ProductsPage = () => {
                         <h3 className="font-display text-xl font-bold text-[#1F2937] mb-2">
                           {product.title}
                         </h3>
-                        <p className="text-[#6B7280] leading-relaxed">
+                        <p className="text-[#6B7280] leading-relaxed mb-4">
                           {product.description}
                         </p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl font-bold text-[#1E40AF]">₹{product.price.toLocaleString('en-IN')}</span>
+                          {product.originalPrice > product.price && (
+                            <span className="text-sm text-[#6B7280] line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                          )}
+                        </div>
                       </CardContent>
                       <CardFooter className="p-6 pt-0">
-                        <Link to="/contact" className="w-full">
-                          <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
-                            Enquiry Now
-                          </Button>
-                        </Link>
+                        <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
+                          Buy Now
+                        </Button>
                       </CardFooter>
                     </Card>
                   ))}
