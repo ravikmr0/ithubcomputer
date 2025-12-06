@@ -1,9 +1,39 @@
 import { Link } from 'react-router-dom';
-import { Shield, Users, Award, Heart } from 'lucide-react';
+import { Shield, Users, Award, Heart, Linkedin, Twitter, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const AboutPage = () => {
+  const founders = [
+    {
+      name: 'Rajesh Kumar',
+      role: 'Founder & CEO',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+      bio: 'With over 15 years of experience in IT industry, Rajesh founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
+      linkedin: '#',
+      twitter: '#',
+      email: 'rajesh@ithubcomputer.com',
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'Co-Founder & CTO',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
+      bio: 'A tech enthusiast with expertise in networking and cybersecurity, Priya leads our technical operations and innovation initiatives.',
+      linkedin: '#',
+      twitter: '#',
+      email: 'priya@ithubcomputer.com',
+    },
+    {
+      name: 'Amit Patel',
+      role: 'Co-Founder & COO',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+      bio: 'Amit brings 12 years of business management experience, ensuring smooth operations and exceptional customer service delivery.',
+      linkedin: '#',
+      twitter: '#',
+      email: 'amit@ithubcomputer.com',
+    },
+  ];
+
   const values = [
     {
       icon: Shield,
@@ -29,17 +59,52 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] text-white py-20">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              About IT HUB Computer
-            </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              Your trusted partner for all IT solutions since establishment. 
-              We're committed to providing exceptional service and genuine products.
-            </p>
+      {/* Hero Section with Company Image */}
+      <section className="relative bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80" 
+            alt="IT HUB Computer Office"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
+                About IT HUB Computer
+              </h1>
+              <p className="text-lg text-blue-100 leading-relaxed mb-6">
+                Your trusted partner for all IT solutions since establishment. 
+                We're committed to providing exceptional service and genuine products.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/contact">
+                  <Button size="lg" className="bg-white text-[#1E40AF] hover:bg-gray-100 btn-press">
+                    Contact Us
+                  </Button>
+                </Link>
+                <Link to="/services">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 btn-press">
+                    Our Services
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="hidden lg:block">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&q=80" 
+                  alt="IT HUB Computer Team"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E40AF]/50 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-white font-semibold text-lg">Our Modern Facility</p>
+                  <p className="text-blue-100 text-sm">State-of-the-art equipment & expert team</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -108,6 +173,66 @@ const AboutPage = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Founders Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
+              Meet Our Founders
+            </h2>
+            <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+              The visionary leaders behind IT HUB Computer
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {founders.map((founder, index) => (
+              <Card key={index} className="border-none shadow-lg overflow-hidden group">
+                <div className="relative h-72 overflow-hidden">
+                  <img
+                    src={founder.image}
+                    alt={founder.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="font-display text-xl font-bold text-white mb-1">
+                      {founder.name}
+                    </h3>
+                    <p className="text-blue-200 font-medium">{founder.role}</p>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <p className="text-[#6B7280] leading-relaxed mb-4">
+                    {founder.bio}
+                  </p>
+                  <div className="flex gap-3">
+                    <a 
+                      href={founder.linkedin} 
+                      className="w-10 h-10 rounded-full bg-[#1E40AF]/10 flex items-center justify-center hover:bg-[#1E40AF] hover:text-white transition-colors text-[#1E40AF]"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href={founder.twitter} 
+                      className="w-10 h-10 rounded-full bg-[#1E40AF]/10 flex items-center justify-center hover:bg-[#1E40AF] hover:text-white transition-colors text-[#1E40AF]"
+                    >
+                      <Twitter className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href={`mailto:${founder.email}`} 
+                      className="w-10 h-10 rounded-full bg-[#1E40AF]/10 flex items-center justify-center hover:bg-[#1E40AF] hover:text-white transition-colors text-[#1E40AF]"
+                    >
+                      <Mail className="w-5 h-5" />
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

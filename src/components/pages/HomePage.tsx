@@ -36,6 +36,13 @@ const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [categorySlide, setCategorySlide] = useState(0);
+  
+  // Countdown timer state - starts at 24 hours, 59 minutes, 30 seconds
+  const [countdown, setCountdown] = useState({
+    hours: 24,
+    minutes: 59,
+    seconds: 30
+  });
 
   const heroSlides = [
     {
@@ -80,6 +87,33 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying, nextSlide]);
 
+  // Countdown timer effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        let { hours, minutes, seconds } = prev;
+        
+        if (seconds > 0) {
+          seconds--;
+        } else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else if (hours > 0) {
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        } else {
+          // Reset to 24 hours when countdown reaches 0
+          return { hours: 24, minutes: 59, seconds: 59 };
+        }
+        
+        return { hours, minutes, seconds };
+      });
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []);
+
   // Auto-slide for categories (faster - 2 seconds)
   useEffect(() => {
     const categoryInterval = setInterval(() => {
@@ -93,8 +127,8 @@ const HomePage = () => {
       id: 1,
       name: 'Gaming Laptop i7 RTX 4060',
       category: 'Laptops',
-      price: 1299,
-      originalPrice: 1499,
+      price: 89999,
+      originalPrice: 109999,
       image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80',
       rating: 4.8,
       reviews: 124,
@@ -105,8 +139,8 @@ const HomePage = () => {
       id: 2,
       name: '27" 4K IPS Monitor',
       category: 'Monitors',
-      price: 449,
-      originalPrice: 549,
+      price: 32999,
+      originalPrice: 42999,
       image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80',
       rating: 4.9,
       reviews: 89,
@@ -117,8 +151,8 @@ const HomePage = () => {
       id: 3,
       name: 'Mechanical RGB Keyboard',
       category: 'Peripherals',
-      price: 129,
-      originalPrice: 159,
+      price: 4999,
+      originalPrice: 6999,
       image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400&q=80',
       rating: 4.7,
       reviews: 256,
@@ -129,8 +163,8 @@ const HomePage = () => {
       id: 4,
       name: '1TB NVMe SSD Gen4',
       category: 'Storage',
-      price: 89,
-      originalPrice: 119,
+      price: 7499,
+      originalPrice: 9999,
       image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
       rating: 4.9,
       reviews: 312,
@@ -141,8 +175,8 @@ const HomePage = () => {
       id: 5,
       name: 'Wireless Gaming Mouse',
       category: 'Peripherals',
-      price: 79,
-      originalPrice: 99,
+      price: 2999,
+      originalPrice: 3999,
       image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80',
       rating: 4.6,
       reviews: 178,
@@ -153,8 +187,8 @@ const HomePage = () => {
       id: 6,
       name: '32GB DDR5 RAM Kit',
       category: 'Memory',
-      price: 159,
-      originalPrice: 199,
+      price: 12999,
+      originalPrice: 15999,
       image: 'https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&q=80',
       rating: 4.8,
       reviews: 94,
@@ -165,8 +199,8 @@ const HomePage = () => {
       id: 7,
       name: 'WiFi 6E Router',
       category: 'Networking',
-      price: 199,
-      originalPrice: 249,
+      price: 8999,
+      originalPrice: 11999,
       image: 'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400&q=80',
       rating: 4.5,
       reviews: 67,
@@ -177,8 +211,8 @@ const HomePage = () => {
       id: 8,
       name: 'USB-C Docking Station',
       category: 'Accessories',
-      price: 149,
-      originalPrice: 179,
+      price: 6999,
+      originalPrice: 8999,
       image: 'https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&q=80',
       rating: 4.7,
       reviews: 143,
@@ -570,12 +604,15 @@ const HomePage = () => {
                     </div>
                     <span className="text-xs text-[#6B7280]">({product.reviews})</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xl font-bold text-[#1E40AF]">${product.price}</span>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl font-bold text-[#1E40AF]">₹{product.price.toLocaleString('en-IN')}</span>
                     {product.originalPrice > product.price && (
-                      <span className="text-sm text-[#6B7280] line-through">${product.originalPrice}</span>
+                      <span className="text-sm text-[#6B7280] line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
                     )}
                   </div>
+                  <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold">
+                    Buy Now
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -604,15 +641,15 @@ const HomePage = () => {
             </div>
             <div className="flex gap-4">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20">
-                <span className="text-4xl font-black text-white">24</span>
+                <span className="text-4xl font-black text-white">{countdown.hours.toString().padStart(2, '0')}</span>
                 <p className="text-blue-100 text-sm">Hours</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20">
-                <span className="text-4xl font-black text-white">59</span>
+                <span className="text-4xl font-black text-white">{countdown.minutes.toString().padStart(2, '0')}</span>
                 <p className="text-blue-100 text-sm">Minutes</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20">
-                <span className="text-4xl font-black text-white">30</span>
+                <span className="text-4xl font-black text-white">{countdown.seconds.toString().padStart(2, '0')}</span>
                 <p className="text-blue-100 text-sm">Seconds</p>
               </div>
             </div>
@@ -689,7 +726,7 @@ const HomePage = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-[#1F2937]">Free Delivery</h3>
-                <p className="text-sm text-[#6B7280]">On orders over $100</p>
+                <p className="text-sm text-[#6B7280]">On orders over ₹5,000</p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
