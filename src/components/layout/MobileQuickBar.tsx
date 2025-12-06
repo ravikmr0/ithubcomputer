@@ -14,7 +14,7 @@ const MobileQuickBar = () => {
           </Button>
         </a>
         <a 
-          href={`https://wa.me/1234567890?text=${whatsappMessage}`}
+          href={`https://wa.me/919779286917?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 ml-2"
