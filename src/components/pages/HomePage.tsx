@@ -680,7 +680,7 @@ const HomePage = () => {
                   className="flex-shrink-0 px-4"
                   style={{ minWidth: 'calc(100% / 6)', maxWidth: 'calc(100% / 6)' }}
                 >
-                  <div className="w-full h-24 rounded-xl bg-[#F9FAFB] flex items-center justify-center hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer group border border-transparent hover:border-[#E5E7EB]">
+                  <div className="w-full h-24 rounded-xl bg-white flex items-center justify-center hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer group border border-transparent hover:border-[#E5E7EB]">
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
