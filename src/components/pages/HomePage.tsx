@@ -284,7 +284,7 @@ const HomePage = () => {
       description: 'Advanced biometric attendance and access control system installation.',
     },
     {
-      icon: CPU,
+      icon: Cpu,
       title: 'Hardware Parts',
       description: 'Genuine computer parts and accessories at competitive prices.',
     },
