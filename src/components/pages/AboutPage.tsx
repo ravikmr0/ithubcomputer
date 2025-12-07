@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 const AboutPage = () => {
   const founders = [
     {
-      name: 'Rajesh Kumar',
+      name: 'IT HUB Computer',
       role: 'Founder & CEO',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
       bio: 'With over 15 years of experience in IT industry, Rajesh founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
@@ -15,7 +15,7 @@ const AboutPage = () => {
       email: 'rajesh@ithubcomputer.com',
     },
     {
-      name: 'Priya Sharma',
+      name: 'IT HUB Computer',
       role: 'Co-Founder & CTO',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
       bio: 'A tech enthusiast with expertise in networking and cybersecurity, Priya leads our technical operations and innovation initiatives.',
@@ -24,7 +24,7 @@ const AboutPage = () => {
       email: 'priya@ithubcomputer.com',
     },
     {
-      name: 'Amit Patel',
+      name: 'IT HUB Computer',
       role: 'Co-Founder & COO',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
       bio: 'Amit brings 12 years of business management experience, ensuring smooth operations and exceptional customer service delivery.',

@@ -117,7 +117,7 @@ const Footer = () => {
                   <MapPin className="w-4 h-4 text-[#3B82F6]" />
                 </div>
                 <span className="text-gray-300 text-sm">
-                  123 Tech Street, Digital City, TC 12345
+                  Shahdara, Sector 141, Noida, Uttar Pradesh 201304, India
                 </span>
               </li>
               <li className="flex items-center space-x-3">
