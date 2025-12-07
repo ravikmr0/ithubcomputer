@@ -804,7 +804,7 @@ const HomePage = () => {
             Contact us today for a free consultation and quote
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+1234567890">
+            <a href="tel:+919779286917">
               <Button size="lg" className="bg-white text-[#1E40AF] hover:bg-gray-100 btn-press font-bold shadow-2xl">
                 Call Now
               </Button>
