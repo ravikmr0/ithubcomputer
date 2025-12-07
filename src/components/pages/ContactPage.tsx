@@ -54,20 +54,20 @@ const ContactPage = () => {
     {
       icon: MapPin,
       title: 'Address',
-      content: '123 Tech Street, Digital City, TC 12345',
+      content: 'Shahdara, Sector 141, Noida, Uttar Pradesh 201304, India',
       link: 'https://maps.google.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (234) 567-890',
-      link: 'tel:+1234567890',
+      content: '+91 9779286917',
+      link: 'tel:+919779286917',
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
       content: 'Chat with us',
-      link: `https://wa.me/1234567890?text=${encodeURIComponent("Hi, I'm interested in IT HUB Computer services")}`,
+      link: `https://wa.me/919779286917?text=${encodeURIComponent("Hi, I'm interested in IT HUB Computer services")}`,
     },
     {
       icon: Mail,
@@ -271,14 +271,14 @@ const ContactPage = () => {
 
               {/* Quick Actions */}
               <div className="grid grid-cols-2 gap-4">
-                <a href="tel:+1234567890">
+                <a href="tel:+919779286917">
                   <Button className="w-full h-14 bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
                     <Phone className="w-5 h-5 mr-2" />
                     Call Now
                   </Button>
                 </a>
                 <a
-                  href={`https://wa.me/1234567890?text=${whatsappMessage}`}
+                  href={`https://wa.me/+919779286917?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -301,7 +301,7 @@ const ContactPage = () => {
           </h2>
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1841374555634!2d-73.98823492346618!3d40.75889097138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              src="https://share.google/vSvWKhzC9vUP4uBad"
               width="100%"
               height="450"
               style={{ border: 0 }}
