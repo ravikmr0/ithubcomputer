@@ -6,16 +6,16 @@ import { Card, CardContent } from '@/components/ui/card';
 const AboutPage = () => {
   const founders = [
     {
-      name: 'IT HUB Computer',
+      name: 'Jai Duggal',
       role: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-      bio: 'With over 15 years of experience in IT industry, Rajesh founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
+      image: '/images/jaiduggal.jpg',
+      bio: 'With over 4 years of experience in IT industry, Rajesh founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
       linkedin: '#',
       twitter: '#',
-      email: 'rajesh@ithubcomputer.com',
+      email: 'info@ithubcomputer.com',
     },
     {
-      name: 'IT HUB Computer',
+      name: 'Computer Hub ',
       role: 'Co-Founder & CTO',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
       bio: 'A tech enthusiast with expertise in networking and cybersecurity, Priya leads our technical operations and innovation initiatives.',
