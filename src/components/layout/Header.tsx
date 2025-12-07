@@ -23,13 +23,20 @@ const Header = () => {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex flex-col group">
-            <span className="font-display text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              IT HUB Computer
-            </span>
-            <span className="text-xs text-gray-300 font-mono-accent tracking-wider uppercase">
-              Your Tech Solution Partner
-            </span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img 
+              src="/ithub.jpg" 
+              alt="IT HUB Computer Logo" 
+              className="h-14 w-14 object-contain rounded-lg shadow-md transition-transform group-hover:scale-105"
+            />
+            <div className="flex flex-col">
+              <span className="font-display text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                IT HUB Computer
+              </span>
+              <span className="text-xs text-gray-300 font-mono-accent tracking-wider uppercase">
+                Your Tech Solution Partner
+              </span>
+            </div>
           </Link>
 
           {/* Search Box */}
