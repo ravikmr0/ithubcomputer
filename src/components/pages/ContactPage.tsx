@@ -54,8 +54,8 @@ const ContactPage = () => {
     {
       icon: MapPin,
       title: 'Address',
-      content: 'Shahdara, Sector 141, Noida, Uttar Pradesh 201304, India',
-      link: 'https://maps.google.com',
+      content: 'Sector 141, Noida, Uttar Pradesh 201304, India',
+      link: 'https://share.google/d3XWH8nuOviYXnm5a',
     },
     {
       icon: Phone,
@@ -252,17 +252,11 @@ const ContactPage = () => {
                       </h3>
                       <div className="space-y-2 text-sm text-[#6B7280]">
                         <div className="flex justify-between">
-                          <span>Monday - Friday:</span>
-                          <span className="font-medium text-[#1F2937]">9:00 AM - 7:00 PM</span>
+                          <span>Monday - Sunday:</span>
+                          <span className="font-medium text-[#1F2937]"> 10:00 AM - 10:00 PM</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span>Saturday:</span>
-                          <span className="font-medium text-[#1F2937]">10:00 AM - 6:00 PM</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Sunday:</span>
-                          <span className="font-medium text-[#1F2937]">Closed</span>
-                        </div>
+                        
+                        
                       </div>
                     </div>
                   </div>

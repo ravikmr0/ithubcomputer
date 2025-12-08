@@ -4,9 +4,51 @@ import { Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [isLeadDialogOpen, setIsLeadDialogOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [leadForm, setLeadForm] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleQuoteNowClick = (product: any) => {
+    setSelectedProduct(product);
+    setIsLeadDialogOpen(true);
+  };
+
+  const handleLeadFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setLeadForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleLeadFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Lead form submitted:', {
+      product: selectedProduct?.title,
+      ...leadForm
+    });
+    // Reset form and close dialog
+    setLeadForm({
+      fullName: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
+    setIsLeadDialogOpen(false);
+    // TODO: Send lead data to backend/email service
+  };
 
   const categories = [
     { id: 'all', name: 'All Products' },
@@ -197,8 +239,11 @@ const ProductsPage = () => {
                       </div>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
-                        Buy Now
+                      <Button 
+                        className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
+                        onClick={() => handleQuoteNowClick(product)}
+                      >
+                        Quote Now
                       </Button>
                     </CardFooter>
                   </Card>
@@ -233,8 +278,11 @@ const ProductsPage = () => {
                         </div>
                       </CardContent>
                       <CardFooter className="p-6 pt-0">
-                        <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
-                          Buy Now
+                        <Button 
+                          className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
+                          onClick={() => handleQuoteNowClick(product)}
+                        >
+                          Quote Now
                         </Button>
                       </CardFooter>
                     </Card>
@@ -266,6 +314,101 @@ const ProductsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Lead Capture Dialog */}
+      <Dialog open={isLeadDialogOpen} onOpenChange={setIsLeadDialogOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#1F2937]">
+              Request a Quote
+            </DialogTitle>
+            <DialogDescription className="text-[#6B7280]">
+              {selectedProduct && (
+                <span className="block mt-2 font-semibold text-[#1E40AF]">
+                  Product: {selectedProduct.title}
+                </span>
+              )}
+              Fill in your details and we'll get back to you shortly.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleLeadFormSubmit} className="space-y-4 mt-4">
+            <div className="space-y-2">
+              <Label htmlFor="fullName" className="text-[#1F2937] font-semibold">
+                Full Name *
+              </Label>
+              <Input
+                id="fullName"
+                name="fullName"
+                value={leadForm.fullName}
+                onChange={handleLeadFormChange}
+                placeholder="Enter your full name"
+                required
+                className="border-[#E5E7EB] focus:border-[#1E40AF]"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-[#1F2937] font-semibold">
+                Email *
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={leadForm.email}
+                onChange={handleLeadFormChange}
+                placeholder="Enter your email"
+                required
+                className="border-[#E5E7EB] focus:border-[#1E40AF]"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-[#1F2937] font-semibold">
+                Phone *
+              </Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={leadForm.phone}
+                onChange={handleLeadFormChange}
+                placeholder="Enter your phone number"
+                required
+                className="border-[#E5E7EB] focus:border-[#1E40AF]"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-[#1F2937] font-semibold">
+                Message
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={leadForm.message}
+                onChange={handleLeadFormChange}
+                placeholder="Any specific requirements or questions?"
+                rows={4}
+                className="border-[#E5E7EB] focus:border-[#1E40AF] resize-none"
+              />
+            </div>
+            <div className="flex gap-3 pt-4">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setIsLeadDialogOpen(false)}
+                className="flex-1 border-[#E5E7EB] text-[#6B7280] hover:bg-[#F3F4F6]"
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                className="flex-1 bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold"
+              >
+                Submit Request
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
