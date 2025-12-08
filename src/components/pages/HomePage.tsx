@@ -31,11 +31,23 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [categorySlide, setCategorySlide] = useState(0);
+  const [isLeadDialogOpen, setIsLeadDialogOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [leadForm, setLeadForm] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
   
   // Countdown timer state - starts at 24 hours, 59 minutes, 30 seconds
   const [countdown, setCountdown] = useState({
@@ -113,6 +125,40 @@ const HomePage = () => {
     
     return () => clearInterval(timer);
   }, []);
+
+  // Handle Buy Now click
+  const handleBuyNowClick = (product: any) => {
+    setSelectedProduct(product);
+    setIsLeadDialogOpen(true);
+  };
+
+  // Handle form input changes
+  const handleLeadFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setLeadForm({
+      ...leadForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // Handle form submission
+  const handleLeadFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you can add logic to send the lead data to your backend
+    console.log('Lead submitted:', {
+      product: selectedProduct,
+      ...leadForm
+    });
+    // Reset form and close dialog
+    setLeadForm({
+      fullName: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
+    setIsLeadDialogOpen(false);
+    // You can add a success toast notification here
+    alert('Thank you! We will contact you soon.');
+  };
 
   // Auto-slide for categories (faster - 2 seconds)
   useEffect(() => {
@@ -610,8 +656,11 @@ const HomePage = () => {
                       <span className="text-sm text-[#6B7280] line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
                     )}
                   </div>
-                  <Button className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold">
-                    Buy Now
+                  <Button 
+                    className="w-full bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold"
+                    onClick={() => handleBuyNowClick(product)}
+                  >
+                    Quote Now
                   </Button>
                 </CardContent>
               </Card>
@@ -680,7 +729,7 @@ const HomePage = () => {
                   className="flex-shrink-0 px-4"
                   style={{ minWidth: 'calc(100% / 6)', maxWidth: 'calc(100% / 6)' }}
                 >
-                  <div className="w-full h-24 rounded-xl bg-white flex items-center justify-center hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer group border border-transparent hover:border-[#E5E7EB]">
+                  <div className="w-full h-24 rounded-xl bg-white flex items-center justify-center hover:shadow-lg transition-all duration-300 cursor-pointer group border border-[#E5E7EB] hover:border-[#1E40AF]">
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
@@ -692,7 +741,6 @@ const HomePage = () => {
                       }}
                     />
                   </div>
-                  <p className="text-center text-sm text-[#6B7280] mt-2 font-medium">{brand.name}</p>
                 </div>
               ))}
             </div>
@@ -821,6 +869,101 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Lead Capture Dialog */}
+      <Dialog open={isLeadDialogOpen} onOpenChange={setIsLeadDialogOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#1F2937]">
+              Request a Quote
+            </DialogTitle>
+            <DialogDescription className="text-[#6B7280]">
+              {selectedProduct && (
+                <span className="block mt-2 font-semibold text-[#1E40AF]">
+                  Product: {selectedProduct.name}
+                </span>
+              )}
+              Fill in your details and we'll get back to you shortly.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleLeadFormSubmit} className="space-y-4 mt-4">
+            <div className="space-y-2">
+              <Label htmlFor="fullName" className="text-[#1F2937] font-semibold">
+                Full Name *
+              </Label>
+              <Input
+                id="fullName"
+                name="fullName"
+                value={leadForm.fullName}
+                onChange={handleLeadFormChange}
+                placeholder="Enter your full name"
+                required
+                className="border-[#E5E7EB] focus:border-[#1E40AF]"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-[#1F2937] font-semibold">
+                Email *
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={leadForm.email}
+                onChange={handleLeadFormChange}
+                placeholder="Enter your email"
+                required
+                className="border-[#E5E7EB] focus:border-[#1E40AF]"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-[#1F2937] font-semibold">
+                Phone *
+              </Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={leadForm.phone}
+                onChange={handleLeadFormChange}
+                placeholder="Enter your phone number"
+                required
+                className="border-[#E5E7EB] focus:border-[#1E40AF]"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-[#1F2937] font-semibold">
+                Message
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={leadForm.message}
+                onChange={handleLeadFormChange}
+                placeholder="Any specific requirements or questions?"
+                rows={4}
+                className="border-[#E5E7EB] focus:border-[#1E40AF] resize-none"
+              />
+            </div>
+            <div className="flex gap-3 pt-4">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setIsLeadDialogOpen(false)}
+                className="flex-1 border-[#E5E7EB] text-[#6B7280] hover:bg-[#F3F4F6]"
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                className="flex-1 bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold"
+              >
+                Submit Request
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
