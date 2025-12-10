@@ -29,21 +29,45 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: 'Message Sent!',
+          description: "We'll get back to you as soon as possible.",
+        });
+        setFormData({
+          name: '',
+          mobile: '',
+          email: '',
+          service: '',
+          message: '',
+        });
+      } else {
+        toast({
+          title: 'Error',
+          description: data.error || 'Failed to send message. Please try again.',
+          variant: 'destructive',
+        });
+      }
+    } catch (error) {
       toast({
-        title: 'Message Sent!',
-        description: "We'll get back to you as soon as possible.",
+        title: 'Error',
+        description: 'Failed to send message. Please try again.',
+        variant: 'destructive',
       });
-      setFormData({
-        name: '',
-        mobile: '',
-        email: '',
-        service: '',
-        message: '',
-      });
-    }, 1500);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
@@ -295,7 +319,7 @@ const ContactPage = () => {
           </h2>
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://share.google/vSvWKhzC9vUP4uBad"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.566791442441!2d77.31889731508096!3d28.612912982423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
               width="100%"
               height="450"
               style={{ border: 0 }}
@@ -304,6 +328,18 @@ const ContactPage = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="IT HUB Computer Location"
             />
+          </div>
+          <div className="text-center mt-6">
+            <a 
+              href="https://share.google/kLxcyutG0aSRljww9" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold px-8 py-3">
+                <MapPin className="w-5 h-5 mr-2" />
+                View on Google Maps
+              </Button>
+            </a>
           </div>
         </div>
       </section>

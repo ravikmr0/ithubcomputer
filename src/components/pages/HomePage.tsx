@@ -626,9 +626,11 @@ const HomePage = () => {
                     </Badge>
                   )}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                    <Button size="sm" className="bg-white text-[#1F2937] hover:bg-[#1E40AF] hover:text-white">
-                      <Eye className="w-4 h-4 mr-1" /> View
-                    </Button>
+                    <Link to="/all-products">
+                      <Button size="sm" className="bg-white text-[#1F2937] hover:bg-[#1E40AF] hover:text-white">
+                        <Eye className="w-4 h-4 mr-1" /> View
+                      </Button>
+                    </Link>
                     <Button size="sm" className="bg-[#1E40AF] text-white hover:bg-[#3B82F6]">
                       <ShoppingCart className="w-4 h-4 mr-1" /> Add
                     </Button>
