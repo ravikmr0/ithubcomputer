@@ -8,11 +8,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 
 const ProductsPage = () => {
+  const { toast } = useToast();
   const [activeCategory, setActiveCategory] = useState('all');
   const [isLeadDialogOpen, setIsLeadDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [leadForm, setLeadForm] = useState({
     fullName: '',
     email: '',
@@ -33,21 +36,105 @@ const ProductsPage = () => {
     }));
   };
 
-  const handleLeadFormSubmit = (e: React.FormEvent) => {
+  const handleLeadFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Lead form submitted:', {
-      product: selectedProduct?.title,
-      ...leadForm
-    });
-    // Reset form and close dialog
-    setLeadForm({
-      fullName: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
-    setIsLeadDialogOpen(false);
-    // TODO: Send lead data to backend/email service
+    
+    // Client-side validation
+    if (!leadForm.fullName.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter your full name.",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    if (!leadForm.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(leadForm.email)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    if (!leadForm.phone.trim() || leadForm.phone.replace(/\D/g, '').length < 10) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid phone number (at least 10 digits).",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/send-quote-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: leadForm.fullName.trim(),
+          email: leadForm.email.trim(),
+          phone: leadForm.phone.trim(),
+          message: leadForm.message.trim(),
+          productName: selectedProduct?.title || 'Unknown Product',
+        }),
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        throw new Error('Server returned an invalid response. Please try again.');
+      }
+
+      if (response.ok) {
+        toast({
+          title: "Quote Request Sent! ✅",
+          description: "Thank you! We'll get back to you shortly with the best quote.",
+          duration: 5000,
+        });
+        
+        setLeadForm({
+          fullName: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+        setIsLeadDialogOpen(false);
+      } else if (response.status === 400) {
+        throw new Error(data.error || 'Please fill in all required fields correctly.');
+      } else if (response.status === 500) {
+        throw new Error('Our email service is temporarily unavailable. Please try again later or contact us directly at info@ithubcomputer.com');
+      } else {
+        throw new Error(data.error || 'Failed to send quote request. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      
+      let errorMessage = "Failed to send quote request. Please try again.";
+      
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        errorMessage = "Network error. Please check your internet connection and try again.";
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      toast({
+        title: "Unable to Send Request",
+        description: errorMessage,
+        variant: "destructive",
+        duration: 6000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const categories = [
@@ -396,14 +483,16 @@ const ProductsPage = () => {
                 variant="outline"
                 onClick={() => setIsLeadDialogOpen(false)}
                 className="flex-1 border-[#E5E7EB] text-[#6B7280] hover:bg-[#F3F4F6]"
+                disabled={isSubmitting}
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
                 className="flex-1 bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold"
+                disabled={isSubmitting}
               >
-                Submit Request
+                {isSubmitting ? 'Sending...' : 'Submit Request'}
               </Button>
             </div>
           </form>
