@@ -37,6 +37,38 @@ const AllProductsPage = () => {
 
   const handleLeadFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Client-side validation
+    if (!leadForm.fullName.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter your full name.",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    if (!leadForm.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(leadForm.email)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    if (!leadForm.phone.trim() || leadForm.phone.replace(/\D/g, '').length < 10) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid phone number (at least 10 digits).",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -46,20 +78,25 @@ const AllProductsPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          fullName: leadForm.fullName,
-          email: leadForm.email,
-          phone: leadForm.phone,
-          message: leadForm.message,
-          productName: selectedProduct?.name,
+          fullName: leadForm.fullName.trim(),
+          email: leadForm.email.trim(),
+          phone: leadForm.phone.trim(),
+          message: leadForm.message.trim(),
+          productName: selectedProduct?.name || 'Unknown Product',
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        throw new Error('Server returned an invalid response. Please try again.');
+      }
 
       if (response.ok) {
         toast({
-          title: "Quote Request Sent!",
-          description: "We'll get back to you shortly with the best quote.",
+          title: "Quote Request Sent! ✅",
+          description: "Thank you! We'll get back to you shortly with the best quote.",
           duration: 5000,
         });
         
@@ -70,16 +107,29 @@ const AllProductsPage = () => {
           message: ''
         });
         setIsLeadDialogOpen(false);
+      } else if (response.status === 400) {
+        throw new Error(data.error || 'Please fill in all required fields correctly.');
+      } else if (response.status === 500) {
+        throw new Error('Our email service is temporarily unavailable. Please try again later or contact us directly at info@ithubcomputer.com');
       } else {
-        throw new Error(data.error || 'Failed to send quote request');
+        throw new Error(data.error || 'Failed to send quote request. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+      
+      let errorMessage = "Failed to send quote request. Please try again.";
+      
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        errorMessage = "Network error. Please check your internet connection and try again.";
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
       toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to send quote request. Please try again or contact us directly.",
+        title: "Unable to Send Request",
+        description: errorMessage,
         variant: "destructive",
-        duration: 5000,
+        duration: 6000,
       });
     } finally {
       setIsSubmitting(false);
@@ -391,6 +441,7 @@ const AllProductsPage = () => {
                 variant="outline"
                 onClick={() => setIsLeadDialogOpen(false)}
                 className="flex-1"
+                disabled={isSubmitting}
               >
                 Cancel
               </Button>
