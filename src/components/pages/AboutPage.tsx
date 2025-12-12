@@ -8,7 +8,7 @@ const AboutPage = () => {
     {
       name: 'Jai Duggal',
       role: 'Founder & CEO',
-      image: '/images/jaiduggal.jpg',
+      image: '/images/jaibhai.jpg',
       bio: 'With over 4 years of experience in IT industry, Rajesh founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
       linkedin: '#',
       twitter: '#',
