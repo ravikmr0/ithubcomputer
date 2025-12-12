@@ -17,7 +17,7 @@ const AboutPage = () => {
     {
       name: 'Ashiya Malik ',
       role: 'Co-Founder & CTO',
-      image: '/images/ashiyaa.png',
+      image: '/images/ashiyaa.jpg',
       bio: 'A tech enthusiast with expertise in networking and cybersecurity, Ashiya leads our technical operations and innovation initiatives.',
       linkedin: '#',
       twitter: '#',
