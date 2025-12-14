@@ -162,7 +162,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/ithub_computer/"
                 className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#1E40AF] transition-all duration-300 hover:scale-110"
                 aria-label="Instagram"
               >
