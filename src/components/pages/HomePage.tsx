@@ -820,7 +820,7 @@ const HomePage = () => {
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
-                      className="h-10 w-auto max-w-[80px] object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                      className="h-10 w-auto max-w-[80px] object-contain white group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -870,7 +870,7 @@ const HomePage = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-[#1F2937]">Warranty</h3>
-                <p className="text-sm text-[#6B7280]">1 Year on all products</p>
+                <p className="text-sm text-[#6B7280]">Across Premium & Trusted Brands.</p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
