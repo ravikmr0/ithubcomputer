@@ -9,7 +9,7 @@ const AboutPage = () => {
       name: 'Jai Duggal',
       role: 'Founder & CEO',
       image: '/images/jaibhai.jpg',
-      bio: 'With over 4 years of experience in IT industry, Rajesh founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
+      bio: 'With over 4 years of experience in IT industry, Jai founded IT HUB Computer with a vision to provide quality tech solutions to everyone.',
       linkedin: '#',
       twitter: '#',
       email: 'info@ithubcomputer.com',
@@ -269,11 +269,11 @@ const AboutPage = () => {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-5xl font-display font-bold text-[#1E40AF] mb-2">100+</div>
+              <div className="text-5xl font-display font-bold text-[#1E40AF] mb-2">10,000+</div>
               <div className="text-[#6B7280] font-medium">Happy Customers</div>
             </div>
             <div>
-              <div className="text-5xl font-display font-bold text-[#1E40AF] mb-2">500+</div>
+              <div className="text-5xl font-display font-bold text-[#1E40AF] mb-2">5,000+</div>
               <div className="text-[#6B7280] font-medium">Repairs Completed</div>
             </div>
             <div>

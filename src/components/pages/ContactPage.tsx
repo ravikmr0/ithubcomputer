@@ -319,7 +319,7 @@ const ContactPage = () => {
           </h2>
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.566791442441!2d77.31889731508096!3d28.612912982423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/place/ithub+computer/@28.508398,77.4160574,17z/data=!4m14!1m7!3m6!1s0x390ce94f9081bf2f:0xe6f4ae2d6e0a6799!2sithub+computer!8m2!3d28.5084255!4d77.4160809!16s%2Fg%2F11vz3xhqrk!3m5!1s0x390ce94f9081bf2f:0xe6f4ae2d6e0a6799!8m2!3d28.5084255!4d77.4160809!16s%2Fg%2F11vz3xhqrk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
               width="100%"
               height="450"
               style={{ border: 0 }}

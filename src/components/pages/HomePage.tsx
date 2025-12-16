@@ -24,6 +24,8 @@ import {
   Star,
   ShoppingCart,
   Eye,
+  PhoneCall,
+  MessageSquare,
   Truck,
   Clock,
   Award
@@ -710,16 +712,6 @@ const HomePage = () => {
                       {product.badge}
                     </Badge>
                   )}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                    <Link to="/all-products">
-                      <Button size="sm" className="bg-white text-[#1F2937] hover:bg-[#1E40AF] hover:text-white">
-                        <Eye className="w-4 h-4 mr-1" /> View
-                      </Button>
-                    </Link>
-                    <Button size="sm" className="bg-[#1E40AF] text-white hover:bg-[#3B82F6]">
-                      <ShoppingCart className="w-4 h-4 mr-1" /> Add
-                    </Button>
-                  </div>
                 </div>
                 <CardContent className="p-4">
                   <p className="text-xs text-[#6B7280] uppercase tracking-wider mb-1">{product.category}</p>
@@ -860,8 +852,8 @@ const HomePage = () => {
                 <Truck className="w-7 h-7 text-[#1E40AF]" />
               </div>
               <div>
-                <h3 className="font-semibold text-[#1F2937]">Free Delivery</h3>
-                <p className="text-sm text-[#6B7280]">On orders over ₹5,000</p>
+                <h3 className="font-semibold text-[#1F2937]">Door-to-Door Delivery Available.</h3>
+                <p className="text-sm text-[#6B7280]"></p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
@@ -948,7 +940,7 @@ const HomePage = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white "bg-white text-[#1E40AF] hover:bg-white hover:text-[#1E40AF] btn-press font-bold backdrop-blur-sm"
+                className="border-2 border-white bg-white text-[#1E40AF] hover:bg-white hover:text-[#1E40AF] btn-press font-bold backdrop-blur-sm"
               >
                 Contact Us
               </Button>
