@@ -948,7 +948,7 @@ const HomePage = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-[#1E40AF] btn-press font-bold backdrop-blur-sm"
+                className="border-2 border-white "bg-white text-[#1E40AF] hover:bg-white hover:text-[#1E40AF] btn-press font-bold backdrop-blur-sm"
               >
                 Contact Us
               </Button>
