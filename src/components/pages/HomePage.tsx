@@ -852,7 +852,7 @@ const HomePage = () => {
                 <Truck className="w-7 h-7 text-[#1E40AF]" />
               </div>
               <div>
-                <h3 className="font-semibold text-[#1F2937]">Door-to-Door Delivery Available.</h3>
+                <h3 className="font-semibold text-[#1F2937]">Door-to-Door Service</h3>
                 <p className="text-sm text-[#6B7280]"></p>
               </div>
             </div>
@@ -862,7 +862,7 @@ const HomePage = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-[#1F2937]">Warranty</h3>
-                <p className="text-sm text-[#6B7280]">Across Premium & Trusted Brands.</p>
+                <p className="text-sm text-[#6B7280]">On Side </p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
