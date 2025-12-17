@@ -10,6 +10,7 @@ import ProductsPage from "./components/pages/ProductsPage";
 import AllProductsPage from "./components/pages/AllProductsPage";
 import ContactPage from "./components/pages/ContactPage";
 import { Toaster } from "./components/ui/toaster";
+import FloatingContactButtons from "./components/layout/FloatingContactButtons";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         </main>
         <Footer />
         <MobileQuickBar />
+        <FloatingContactButtons />
         <Toaster />
       </div>
     </Suspense>
