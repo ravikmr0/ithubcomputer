@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Laptop, 
@@ -6,12 +7,143 @@ import {
   Camera, 
   Fingerprint, 
   Cpu,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 
 const ServicesPage = () => {
+  const { toast } = useToast();
+  const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [quoteForm, setQuoteForm] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleGetQuoteClick = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+    setIsQuoteDialogOpen(true);
+  };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setQuoteForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Client-side validation
+    if (!quoteForm.fullName.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter your full name.",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    if (!quoteForm.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(quoteForm.email)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    if (!quoteForm.phone.trim() || quoteForm.phone.replace(/\D/g, '').length < 10) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid phone number (at least 10 digits).",
+        variant: "destructive",
+        duration: 4000,
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/send-quote-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: quoteForm.fullName.trim(),
+          email: quoteForm.email.trim(),
+          phone: quoteForm.phone.trim(),
+          message: quoteForm.message.trim(),
+          productName: selectedService || 'Service Inquiry',
+        }),
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        throw new Error('Server returned an invalid response. Please try again.');
+      }
+
+      if (response.ok) {
+        toast({
+          title: "Quote Request Sent! ✅",
+          description: "Thank you! We'll get back to you shortly with the best quote.",
+          duration: 5000,
+        });
+        
+        setQuoteForm({
+          fullName: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+        setIsQuoteDialogOpen(false);
+      } else if (response.status === 400) {
+        throw new Error(data.error || 'Please fill in all required fields correctly.');
+      } else if (response.status === 500) {
+        throw new Error('Our email service is temporarily unavailable. Please try again later or contact us directly at info@ithubcomputer.com');
+      } else {
+        throw new Error(data.error || 'Failed to send quote request. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      
+      let errorMessage = "Failed to send quote request. Please try again.";
+      
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        errorMessage = "Network error. Please check your internet connection and try again.";
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      toast({
+        title: "Unable to Send Request",
+        description: errorMessage,
+        variant: "destructive",
+        duration: 6000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const services = [
     {
       icon: Laptop,
@@ -154,11 +286,12 @@ const ServicesPage = () => {
                         </div>
                       ))}
                     </div>
-                    <Link to="/contact">
-                      <Button className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
-                        Get Quote
-                      </Button>
-                    </Link>
+                    <Button 
+                      className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
+                      onClick={() => handleGetQuoteClick(service.title)}
+                    >
+                      Get Quote
+                    </Button>
                   </CardContent>
                 </Card>
               );
@@ -177,13 +310,118 @@ const ServicesPage = () => {
             We offer customized IT solutions tailored to your specific requirements. 
             Contact us to discuss your needs.
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press">
-              Contact Us Today
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
+            onClick={() => handleGetQuoteClick('Custom IT Solution')}
+          >
+            Contact Us Today
+          </Button>
         </div>
       </section>
+
+      {/* Quote Request Dialog */}
+      <Dialog open={isQuoteDialogOpen} onOpenChange={setIsQuoteDialogOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#1F2937]">
+              Request a Quote
+            </DialogTitle>
+            <DialogDescription className="text-[#6B7280]">
+              {selectedService && (
+                <span className="block mt-2 font-semibold text-[#1E40AF]">
+                  Service: {selectedService}
+                </span>
+              )}
+              Fill in your details and we'll get back to you shortly.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleFormSubmit} className="space-y-4 mt-4">
+            <div className="space-y-2">
+              <Label htmlFor="fullName" className="text-[#1F2937] font-semibold">
+                Full Name *
+              </Label>
+              <Input
+                id="fullName"
+                name="fullName"
+                value={quoteForm.fullName}
+                onChange={handleFormChange}
+                placeholder="Enter your full name"
+                className="border-[#E5E7EB] focus:border-[#1E40AF] focus:ring-[#1E40AF]"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-[#1F2937] font-semibold">
+                Email Address *
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={quoteForm.email}
+                onChange={handleFormChange}
+                placeholder="Enter your email"
+                className="border-[#E5E7EB] focus:border-[#1E40AF] focus:ring-[#1E40AF]"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-[#1F2937] font-semibold">
+                Phone Number *
+              </Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={quoteForm.phone}
+                onChange={handleFormChange}
+                placeholder="Enter your phone number"
+                className="border-[#E5E7EB] focus:border-[#1E40AF] focus:ring-[#1E40AF]"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-[#1F2937] font-semibold">
+                Additional Details
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={quoteForm.message}
+                onChange={handleFormChange}
+                placeholder="Tell us more about your requirements..."
+                className="border-[#E5E7EB] focus:border-[#1E40AF] focus:ring-[#1E40AF] min-h-[100px]"
+              />
+            </div>
+            <div className="flex gap-3 pt-4">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setIsQuoteDialogOpen(false)}
+                className="flex-1 border-[#E5E7EB] text-[#6B7280] hover:bg-[#F3F4F6]"
+                disabled={isSubmitting}
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                className="flex-1 bg-[#1E40AF] hover:bg-[#3B82F6] text-white"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Submit Request'
+                )}
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
