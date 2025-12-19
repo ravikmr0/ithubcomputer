@@ -169,7 +169,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://youtube.com/@ithubcomputer141noida?si=7AiGLSS7yh1idX6n"
                 className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#FF0000] transition-all duration-300 hover:scale-110"
                 aria-label="YouTube"
               >
