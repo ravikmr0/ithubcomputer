@@ -155,7 +155,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex space-x-3 mt-6">
               <a
-                href="#"
+                href="https://www.facebook.com/share/17nWFpAyTQ/"
                 className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#1E40AF] transition-all duration-300 hover:scale-110"
                 aria-label="Facebook"
               >
