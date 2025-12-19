@@ -1,15 +1,15 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import HomePage from "./components/pages/HomePage";
-import AboutPage from "./components/pages/AboutPage";
-import ServicesPage from "./components/pages/ServicesPage";
-import ProductsPage from "./components/pages/ProductsPage";
-import AllProductsPage from "./components/pages/AllProductsPage";
-import ContactPage from "./components/pages/ContactPage";
-import { Toaster } from "./components/ui/toaster";
-import FloatingContactButtons from "./components/layout/FloatingContactButtons";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import HomePage from "@/components/pages/HomePage";
+import AboutPage from "@/components/pages/AboutPage";
+import ServicesPage from "@/components/pages/ServicesPage";
+import ProductsPage from "@/components/pages/ProductsPage";
+import AllProductsPage from "@/components/pages/AllProductsPage";
+import ContactPage from "@/components/pages/ContactPage";
+import { Toaster } from "@/components/ui/toaster";
+import FloatingContactButtons from "@/components/layout/FloatingContactButtons";
 
 function App() {
   return (

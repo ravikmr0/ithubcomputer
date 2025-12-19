@@ -45,6 +45,23 @@ const ContactPage = () => {
           title: 'Message Sent!',
           description: "We'll get back to you as soon as possible.",
         });
+        
+        // Generate WhatsApp message with form data
+        const whatsappMessage = `🔔 *New Contact Form Submission*
+
+👤 *Customer Details:*
+• Name: ${formData.name}
+• Email: ${formData.email}
+${formData.mobile ? `• Phone: ${formData.mobile}` : ''}
+${formData.service ? `• Service: ${formData.service}` : ''}
+
+💬 *Message:*
+${formData.message}
+
+📅 *Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+
+        const whatsappUrl = `https://wa.me/919779286917?text=${encodeURIComponent(whatsappMessage)}`;
+        
         setFormData({
           name: '',
           mobile: '',
@@ -52,6 +69,9 @@ const ContactPage = () => {
           service: '',
           message: '',
         });
+        
+        // Redirect to WhatsApp
+        window.open(whatsappUrl, '_blank');
       } else {
         toast({
           title: 'Error',

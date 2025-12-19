@@ -108,6 +108,22 @@ const ServicesPage = () => {
           duration: 5000,
         });
         
+        // Generate WhatsApp message with form data
+        const whatsappMessage = `🔔 *New Quote Request*
+
+📦 *Service:* ${selectedService || 'Service Inquiry'}
+
+👤 *Customer Details:*
+• Name: ${quoteForm.fullName.trim()}
+• Email: ${quoteForm.email.trim()}
+• Phone: ${quoteForm.phone.trim()}
+
+${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''}
+
+📅 *Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+
+        const whatsappUrl = `https://wa.me/919779286917?text=${encodeURIComponent(whatsappMessage)}`;
+        
         setQuoteForm({
           fullName: '',
           email: '',
@@ -115,6 +131,9 @@ const ServicesPage = () => {
           message: ''
         });
         setIsQuoteDialogOpen(false);
+        
+        // Redirect to WhatsApp
+        window.open(whatsappUrl, '_blank');
       } else if (response.status === 400) {
         throw new Error(data.error || 'Please fill in all required fields correctly.');
       } else if (response.status === 500) {
