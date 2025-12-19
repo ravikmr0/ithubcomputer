@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Eye, ShoppingCart, Star, ArrowLeft } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Eye, ShoppingCart, Star, ArrowLeft, Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +12,10 @@ import { useToast } from '@/components/ui/use-toast';
 
 const AllProductsPage = () => {
   const { toast } = useToast();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const highlightedProductRef = useRef<HTMLDivElement>(null);
   const [isLeadDialogOpen, setIsLeadDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -283,35 +287,143 @@ const AllProductsPage = () => {
     },
   ];
 
+  // Get unique categories
+  const categories = ['all', ...Array.from(new Set(products.map(p => p.category)))];
+
+  // Filter products based on search and category
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = searchQuery.trim() === '' ||
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  // Get highlighted product ID from URL
+  const highlightedId = searchParams.get('highlight');
+
+  // Scroll to highlighted product on mount
+  useEffect(() => {
+    if (highlightedId && highlightedProductRef.current) {
+      setTimeout(() => {
+        highlightedProductRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  }, [highlightedId]);
+
+  // Update URL when search changes
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    if (value.trim()) {
+      setSearchParams({ search: value });
+    } else {
+      setSearchParams({});
+    }
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setSearchParams({});
+  };
+
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] text-white py-16">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] text-white py-12 md:py-16">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
           <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
           <div className="max-w-3xl">
-            <h1 className="font-display text-4xl md:text-5xl font-black mb-4">
-              All Products
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+              {searchQuery ? `Search Results for "${searchQuery}"` : 'All Products'}
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              Browse our complete collection of genuine computer hardware, accessories, and IT equipment. 
-              All products come with warranty and expert support.
+            <p className="text-base md:text-lg text-blue-100 leading-relaxed">
+              {searchQuery 
+                ? `Found ${filteredProducts.length} product${filteredProducts.length !== 1 ? 's' : ''} matching your search.`
+                : 'Browse our complete collection of genuine computer hardware, accessories, and IT equipment. All products come with warranty and expert support.'
+              }
             </p>
           </div>
         </div>
       </section>
 
+      {/* Search & Filter Section */}
+      <section className="py-6 bg-white border-b border-gray-200 sticky top-20 z-40">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+            {/* Search Input */}
+            <div className="relative flex-1 w-full md:max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                className="w-full pl-10 pr-10 py-2.5 border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
+              />
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    selectedCategory === category
+                      ? 'bg-[#1E40AF] text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {category === 'all' ? 'All Categories' : category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Results count */}
+          <div className="mt-4 text-sm text-gray-600">
+            Showing {filteredProducts.length} of {products.length} products
+            {selectedCategory !== 'all' && ` in ${selectedCategory}`}
+          </div>
+        </div>
+      </section>
+
       {/* Products Grid */}
-      <section className="py-16">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => (
+      <section className="py-8 md:py-12">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-16">
+              <Search className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">No products found</h3>
+              <p className="text-gray-500 mb-6">Try adjusting your search or filter to find what you're looking for.</p>
+              <Button onClick={clearSearch} className="bg-[#1E40AF] hover:bg-[#3B82F6]">
+                Clear Search
+              </Button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                ref={highlightedId === String(product.id) ? highlightedProductRef : null}
+              >
               <Card 
-                key={product.id} 
-                className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
+                className={`group overflow-hidden border-2 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white ${
+                  highlightedId === String(product.id) 
+                    ? 'border-[#1E40AF] ring-4 ring-[#1E40AF]/20 animate-pulse' 
+                    : 'border-transparent'
+                }`}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -370,8 +482,10 @@ const AllProductsPage = () => {
                   </Button>
                 </CardContent>
               </Card>
+              </div>
             ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 

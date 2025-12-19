@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import MobileQuickBar from "./components/layout/MobileQuickBar";
 import HomePage from "./components/pages/HomePage";
 import AboutPage from "./components/pages/AboutPage";
 import ServicesPage from "./components/pages/ServicesPage";
@@ -28,7 +27,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <MobileQuickBar />
         <FloatingContactButtons />
         <Toaster />
       </div>
