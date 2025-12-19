@@ -25,7 +25,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img 
-              src="/ithub.jpg" 
+              src="/ithubnew.png" 
               alt="IT HUB Computer Logo" 
               className="h-14 w-14 object-contain rounded-lg shadow-md transition-transform group-hover:scale-105"
             />
@@ -34,7 +34,7 @@ const Header = () => {
                 IT HUB Computer
               </span>
               <span className="text-xs text-gray-300 font-mono-accent tracking-wider uppercase">
-                Your Tech Solution Partner
+                All IT Services Provider 
               </span>
             </div>
           </Link>
