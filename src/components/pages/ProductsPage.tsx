@@ -101,6 +101,22 @@ const ProductsPage = () => {
           duration: 5000,
         });
         
+        // Generate WhatsApp message with form data
+        const whatsappMessage = `🔔 *New Quote Request*
+
+📦 *Product:* ${selectedProduct?.title || 'Product Inquiry'}
+
+👤 *Customer Details:*
+• Name: ${leadForm.fullName.trim()}
+• Email: ${leadForm.email.trim()}
+• Phone: ${leadForm.phone.trim()}
+
+${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
+
+📅 *Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+
+        const whatsappUrl = `https://wa.me/919779286917?text=${encodeURIComponent(whatsappMessage)}`;
+        
         setLeadForm({
           fullName: '',
           email: '',
@@ -108,6 +124,9 @@ const ProductsPage = () => {
           message: ''
         });
         setIsLeadDialogOpen(false);
+        
+        // Redirect to WhatsApp
+        window.open(whatsappUrl, '_blank');
       } else if (response.status === 400) {
         throw new Error(data.error || 'Please fill in all required fields correctly.');
       } else if (response.status === 500) {
