@@ -606,22 +606,24 @@ const HomePage = () => {
       </section>
 
       {/* Product Categories */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-black text-[#1F2937] mb-4">
+      <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-[#F9FAFB]">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-black text-[#1F2937] mb-2 md:mb-4">
               Shop by Category
             </h2>
-            <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-[#6B7280] max-w-2xl mx-auto px-4">
               Browse our wide selection of computer hardware and accessories
             </p>
           </div>
 
           {/* Auto-sliding carousel */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden -mx-2 md:mx-0">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${categorySlide * (100 / 4)}%)` }}
+              style={{ 
+                transform: `translateX(-${categorySlide * (100 / (window.innerWidth < 640 ? 2 : 4))}%)` 
+              }}
             >
               {/* Duplicate categories for infinite loop effect */}
               {[...categories, ...categories].map((category, index) => {
@@ -630,17 +632,20 @@ const HomePage = () => {
                   <Link
                     key={index}
                     to="/products"
-                    className="flex-shrink-0 w-1/2 sm:w-1/4 lg:w-1/8 px-2"
-                    style={{ minWidth: 'calc(100% / 4)', maxWidth: 'calc(100% / 4)' }}
+                    className="flex-shrink-0 px-2 md:px-3"
+                    style={{ 
+                      minWidth: window.innerWidth < 640 ? '50%' : '25%',
+                      maxWidth: window.innerWidth < 640 ? '50%' : '25%'
+                    }}
                   >
-                    <div className="group flex flex-col items-center p-4 rounded-xl bg-[#F9FAFB] hover:bg-gradient-to-br hover:from-[#1E40AF] hover:to-[#3B82F6] transition-all duration-300 cursor-pointer">
-                      <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                        <Icon className="w-7 h-7 text-[#1E40AF] group-hover:text-[#3B82F6]" />
+                    <div className="group flex flex-col items-center p-4 md:p-6 rounded-xl md:rounded-2xl bg-white border-2 border-[#E5E7EB] hover:border-transparent hover:bg-gradient-to-br hover:from-[#1E40AF] hover:to-[#3B82F6] hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#EEF2FF] to-[#DBEAFE] shadow-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:shadow-xl group-hover:bg-white transition-all duration-300">
+                        <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#1E40AF] group-hover:text-[#1E40AF] transition-colors" />
                       </div>
-                      <span className="font-semibold text-sm text-[#1F2937] group-hover:text-white text-center">
+                      <span className="font-bold text-sm md:text-base text-[#1F2937] group-hover:text-white text-center transition-colors">
                         {category.name}
                       </span>
-                      <span className="text-xs text-[#6B7280] group-hover:text-blue-100">
+                      <span className="text-xs md:text-sm text-[#6B7280] group-hover:text-blue-100 mt-1 transition-colors">
                         {category.count} items
                       </span>
                     </div>
@@ -651,15 +656,15 @@ const HomePage = () => {
           </div>
 
           {/* Slide indicators */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-1.5 md:gap-2 mt-6 md:mt-8">
             {categories.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCategorySlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${
                   index === categorySlide % categories.length
-                    ? 'w-6 bg-[#1E40AF]'
-                    : 'bg-[#D1D5DB] hover:bg-[#9CA3AF]'
+                    ? 'w-6 md:w-8 bg-[#1E40AF]'
+                    : 'w-1.5 md:w-2 bg-[#D1D5DB] hover:bg-[#9CA3AF]'
                 }`}
                 aria-label={`Go to category ${index + 1}`}
               />
@@ -786,37 +791,42 @@ const HomePage = () => {
       </section>
 
       {/* Trusted Brands */}
-      <section className="py-16 bg-white overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1F2937] mb-2">
+      <section className="py-12 md:py-16 bg-white overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-[#1F2937] mb-2">
               Trusted Brands We Carry
             </h2>
-            <p className="text-[#6B7280]">Authorized dealer for leading technology brands</p>
+            <p className="text-sm md:text-base text-[#6B7280]">Authorized dealer for leading technology brands</p>
           </div>
           
           {/* Auto-sliding brand carousel */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden -mx-2 md:mx-0">
             <div 
               className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${brandSlide * (100 / 6)}%)` }}
+              style={{ 
+                transform: `translateX(-${brandSlide * (100 / (window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 4 : 6))}%)` 
+              }}
             >
               {/* Duplicate brands for infinite loop effect */}
               {[...brands, ...brands].map((brand, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 px-4"
-                  style={{ minWidth: 'calc(100% / 6)', maxWidth: 'calc(100% / 6)' }}
+                  className="flex-shrink-0 px-2 md:px-3 lg:px-4"
+                  style={{ 
+                    minWidth: window.innerWidth < 640 ? '50%' : window.innerWidth < 1024 ? '25%' : 'calc(100% / 6)',
+                    maxWidth: window.innerWidth < 640 ? '50%' : window.innerWidth < 1024 ? '25%' : 'calc(100% / 6)'
+                  }}
                 >
-                  <div className="w-full h-24 rounded-xl bg-white flex items-center justify-center hover:shadow-lg transition-all duration-300 cursor-pointer group border border-[#E5E7EB] hover:border-[#1E40AF]">
+                  <div className="w-full h-20 md:h-24 rounded-lg md:rounded-xl bg-white flex items-center justify-center hover:shadow-lg transition-all duration-300 cursor-pointer group border border-[#E5E7EB] hover:border-[#1E40AF]">
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
-                      className="h-10 w-auto max-w-[80px] object-contain white group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                      className="h-8 md:h-10 w-auto max-w-[60px] md:max-w-[80px] object-contain group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
-                        target.parentElement!.innerHTML = `<span class="text-xl font-bold text-[#6B7280] group-hover:text-[#1E40AF] transition-colors">${brand.name}</span>`;
+                        target.parentElement!.innerHTML = `<span class="text-base md:text-xl font-bold text-[#6B7280] group-hover:text-[#1E40AF] transition-colors">${brand.name}</span>`;
                       }}
                     />
                   </div>
@@ -826,14 +836,14 @@ const HomePage = () => {
           </div>
 
           {/* Slide indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-1.5 md:gap-2 mt-6 md:mt-8">
             {brands.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setBrandSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-300 ${
                   index === brandSlide % brands.length
-                    ? 'w-6 bg-[#1E40AF]'
+                    ? 'w-4 md:w-6 bg-[#1E40AF]'
                     : 'bg-[#D1D5DB] hover:bg-[#9CA3AF]'
                 }`}
                 aria-label={`Go to brand ${index + 1}`}
