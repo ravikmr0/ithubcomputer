@@ -1,30 +1,24 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Laptop, Monitor, Keyboard, Mouse, HardDrive, MemoryStick, Headphones, Printer, Cpu, Wifi, Cable, Battery } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Laptop, Monitor, Keyboard, Mouse, HardDrive, MemoryStick, Cpu, Wrench, Camera, Fingerprint, Settings, Database } from 'lucide-react';
 
 const Footer = () => {
   const services = [
-    'Laptop & Desktop Repair',
-    'Data Recovery',
-    'Software Installation',
-    'CCTV Installation',
-    'Biometric Systems',
-    'Hardware Parts',
+    { name: 'Laptop & Desktop Repair', path: '/services/laptop-desktop-repair', icon: Wrench },
+    { name: 'Data Recovery', path: '/services/data-recovery', icon: Database },
+    { name: 'Software Installation', path: '/services/software-installation', icon: Settings },
+    { name: 'CCTV Installation', path: '/services/cctv-installation', icon: Camera },
+    { name: 'Biometric Systems', path: '/services/biometric-systems', icon: Fingerprint },
+    { name: 'Hardware Parts', path: '/products/hardware-parts', icon: Cpu },
   ];
 
   const products = [
-    { name: 'Laptops & Notebooks', icon: Laptop },
-    { name: 'Desktop Computers', icon: Monitor },
-    { name: 'Monitors & Displays', icon: Monitor },
-    { name: 'Keyboards', icon: Keyboard },
-    { name: 'Mouse & Trackpads', icon: Mouse },
-    { name: 'Storage Devices', icon: HardDrive },
-    { name: 'Memory & RAM', icon: MemoryStick },
-    { name: 'Audio Equipment', icon: Headphones },
-    { name: 'Printers & Scanners', icon: Printer },
-    { name: 'Processors & CPUs', icon: Cpu },
-    { name: 'Networking Equipment', icon: Wifi },
-    { name: 'Cables & Adapters', icon: Cable },
-    { name: 'Batteries & Power', icon: Battery },
+    { name: 'Laptops & Notebooks', path: '/products/laptops-notebooks', icon: Laptop },
+    { name: 'Desktop Computers', path: '/products/desktop-computers', icon: Monitor },
+    { name: 'Monitors & Displays', path: '/products/monitors-displays', icon: Monitor },
+    { name: 'Keyboards', path: '/products/keyboards', icon: Keyboard },
+    { name: 'Mouse & Trackpads', path: '/products/mouse-trackpads', icon: Mouse },
+    { name: 'Storage Devices', path: '/products/storage-devices', icon: HardDrive },
+    { name: 'Memory & RAM', path: '/products/memory-ram', icon: MemoryStick },
   ];
 
   const quickLinks = [
@@ -67,12 +61,12 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#3B82F6]"></span>
             </h3>
             <ul className="space-y-2 mt-4 grid grid-cols-1 gap-2">
-              {products.slice(0, 7).map((product) => {
+              {products.map((product) => {
                 const Icon = product.icon;
                 return (
                   <li key={product.name}>
                     <Link
-                      to="/products"
+                      to={product.path}
                       className="text-gray-300 hover:text-[#3B82F6] transition-colors text-sm flex items-center group"
                     >
                       <Icon className="w-4 h-4 mr-2 text-[#3B82F6] opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -91,17 +85,20 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#3B82F6]"></span>
             </h3>
             <ul className="space-y-3 mt-4">
-              {services.map((service) => (
-                <li key={service}>
-                  <Link
-                    to="/services"
-                    className="text-gray-300 hover:text-[#3B82F6] transition-colors text-sm flex items-center group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {service}
-                  </Link>
-                </li>
-              ))}
+              {services.map((service) => {
+                const Icon = service.icon;
+                return (
+                  <li key={service.name}>
+                    <Link
+                      to={service.path}
+                      className="text-gray-300 hover:text-[#3B82F6] transition-colors text-sm flex items-center group"
+                    >
+                      <Icon className="w-4 h-4 mr-2 text-[#3B82F6] opacity-70 group-hover:opacity-100 transition-opacity" />
+                      {service.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

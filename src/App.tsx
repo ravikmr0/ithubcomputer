@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import HomePage from "@/components/pages/HomePage";
 import AboutPage from "@/components/pages/AboutPage";
 import ServicesPage from "@/components/pages/ServicesPage";
@@ -27,10 +28,13 @@ import KeyboardsPage from "@/components/pages/products/KeyboardsPage";
 import MouseTrackpadsPage from "@/components/pages/products/MouseTrackpadsPage";
 import StorageDevicesPage from "@/components/pages/products/StorageDevicesPage";
 import MemoryRAMPage from "@/components/pages/products/MemoryRAMPage";
+import AudioEquipmentPage from "@/components/pages/products/AudioEquipmentPage";
+import PrintersScannersPage from "@/components/pages/products/PrintersScannersPage";
 
 function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-1">
@@ -58,6 +62,8 @@ function App() {
             <Route path="/products/mouse-trackpads" element={<MouseTrackpadsPage />} />
             <Route path="/products/storage-devices" element={<StorageDevicesPage />} />
             <Route path="/products/memory-ram" element={<MemoryRAMPage />} />
+            <Route path="/products/audio-equipment" element={<AudioEquipmentPage />} />
+            <Route path="/products/printers-scanners" element={<PrintersScannersPage />} />
           </Routes>
         </main>
         <Footer />

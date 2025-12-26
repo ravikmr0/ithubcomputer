@@ -260,6 +260,7 @@ const HomePage = () => {
       id: 1,
       name: 'Gaming Laptop i7 RTX 4060',
       category: 'Laptops',
+      path: '/products/laptops-notebooks',
       price: 89999,
       originalPrice: 109999,
       image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80',
@@ -272,6 +273,7 @@ const HomePage = () => {
       id: 2,
       name: '27" 4K IPS Monitor',
       category: 'Monitors',
+      path: '/products/monitors-displays',
       price: 32999,
       originalPrice: 42999,
       image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80',
@@ -284,6 +286,7 @@ const HomePage = () => {
       id: 3,
       name: 'Mechanical RGB Keyboard',
       category: 'Peripherals',
+      path: '/products/keyboards',
       price: 4999,
       originalPrice: 6999,
       image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400&q=80',
@@ -296,6 +299,7 @@ const HomePage = () => {
       id: 4,
       name: '1TB NVMe SSD Gen4',
       category: 'Storage',
+      path: '/products/storage-devices',
       price: 7499,
       originalPrice: 9999,
       image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
@@ -308,6 +312,7 @@ const HomePage = () => {
       id: 5,
       name: 'Wireless Gaming Mouse',
       category: 'Peripherals',
+      path: '/products/mouse-trackpads',
       price: 2999,
       originalPrice: 3999,
       image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80',
@@ -320,6 +325,7 @@ const HomePage = () => {
       id: 6,
       name: '32GB DDR5 RAM Kit',
       category: 'Memory',
+      path: '/products/memory-ram',
       price: 12999,
       originalPrice: 15999,
       image: 'https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&q=80',
@@ -332,6 +338,7 @@ const HomePage = () => {
       id: 7,
       name: 'WiFi 6E Router',
       category: 'Networking',
+      path: '/products/hardware-parts',
       price: 8999,
       originalPrice: 11999,
       image: 'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400&q=80',
@@ -344,6 +351,7 @@ const HomePage = () => {
       id: 8,
       name: 'USB-C Docking Station',
       category: 'Accessories',
+      path: '/products/hardware-parts',
       price: 6999,
       originalPrice: 8999,
       image: 'https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&q=80',
@@ -355,14 +363,14 @@ const HomePage = () => {
   ];
 
   const categories = [
-    { icon: Laptop, name: 'Laptops', count: 45 },
-    { icon: Monitor, name: 'Monitors', count: 32 },
-    { icon: Keyboard, name: 'Keyboards', count: 28 },
-    { icon: Mouse, name: 'Mouse', count: 24 },
-    { icon: HardDrive, name: 'Storage', count: 56 },
-    { icon: MemoryStick, name: 'Memory', count: 18 },
-    { icon: Headphones, name: 'Audio', count: 22 },
-    { icon: Printer, name: 'Printers', count: 15 },
+    { icon: Laptop, name: 'Laptops', count: 45, path: '/products/laptops-notebooks' },
+    { icon: Monitor, name: 'Monitors', count: 32, path: '/products/monitors-displays' },
+    { icon: Keyboard, name: 'Keyboards', count: 28, path: '/products/keyboards' },
+    { icon: Mouse, name: 'Mouse', count: 24, path: '/products/mouse-trackpads' },
+    { icon: HardDrive, name: 'Storage', count: 56, path: '/products/storage-devices' },
+    { icon: MemoryStick, name: 'Memory', count: 18, path: '/products/memory-ram' },
+    { icon: Headphones, name: 'Audio', count: 22, path: '/products/audio-equipment' },
+    { icon: Printer, name: 'Printers', count: 15, path: '/products/printers-scanners' },
   ];
 
   const brands = [
@@ -395,31 +403,37 @@ const HomePage = () => {
       icon: Laptop,
       title: 'Laptop & Desktop Repair',
       description: 'Expert repair services for all brands of laptops and desktops with genuine parts.',
+      path: '/services/laptop-desktop-repair',
     },
     {
       icon: HardDrive,
       title: 'Data Recovery',
       description: 'Professional data recovery from damaged hard drives and storage devices.',
+      path: '/services/data-recovery',
     },
     {
       icon: Settings,
       title: 'Software Installation',
       description: 'Complete software setup, OS installation, and system optimization services.',
+      path: '/services/software-installation',
     },
     {
       icon: Camera,
       title: 'CCTV Installation',
       description: 'Professional CCTV camera installation and surveillance system setup.',
+      path: '/services/cctv-installation',
     },
     {
       icon: Fingerprint,
       title: 'Biometric Systems',
       description: 'Advanced biometric attendance and access control system installation.',
+      path: '/services/biometric-systems',
     },
     {
       icon: Cpu,
       title: 'Hardware Parts',
       description: 'Genuine computer parts and accessories at competitive prices.',
+      path: '/products/hardware-parts',
     },
   ];
 
@@ -575,22 +589,23 @@ const HomePage = () => {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card 
-                  key={index} 
-                  className="card-hover cursor-pointer border-none shadow-lg hover:shadow-2xl bg-white"
-                >
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] flex items-center justify-center mb-6 shadow-lg">
-                      <Icon className="w-8 h-8 text-white" strokeWidth={2.5} />
-                    </div>
-                    <h3 className="font-display text-xl font-bold text-[#1F2937] mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-[#6B7280] leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <Link to={service.path} key={index}>
+                  <Card 
+                    className="card-hover cursor-pointer border-none shadow-lg hover:shadow-2xl bg-white h-full"
+                  >
+                    <CardContent className="p-8">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] flex items-center justify-center mb-6 shadow-lg">
+                        <Icon className="w-8 h-8 text-white" strokeWidth={2.5} />
+                      </div>
+                      <h3 className="font-display text-xl font-bold text-[#1F2937] mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-[#6B7280] leading-relaxed">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>
@@ -631,7 +646,7 @@ const HomePage = () => {
                 return (
                   <Link
                     key={index}
-                    to="/products"
+                    to={category.path}
                     className="flex-shrink-0 px-2 md:px-3"
                     style={{ 
                       minWidth: window.innerWidth < 640 ? '50%' : '25%',
@@ -695,10 +710,10 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product) => (
-              <Card 
-                key={product.id} 
-                className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
-              >
+              <Link to={product.path} key={product.id}>
+                <Card 
+                  className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white h-full"
+                >
                 <div className="relative overflow-hidden">
                   <img
                     src={product.image}
@@ -748,6 +763,7 @@ const HomePage = () => {
                   </Button>
                 </CardContent>
               </Card>
+              </Link>
             ))}
           </div>
         </div>
