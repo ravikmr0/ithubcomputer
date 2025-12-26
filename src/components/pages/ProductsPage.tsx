@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Package } from 'lucide-react';
+import { Package, ChevronDown, X, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -9,10 +9,20 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
+import { Checkbox } from '@/components/ui/checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Badge } from '@/components/ui/badge';
 
 const ProductsPage = () => {
   const { toast } = useToast();
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [isLeadDialogOpen, setIsLeadDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,6 +44,14 @@ const ProductsPage = () => {
       ...prev,
       [name]: value
     }));
+  };
+
+  const toggleBrand = (brand: string) => {
+    setSelectedBrands(prev =>
+      prev.includes(brand)
+        ? prev.filter(b => b !== brand)
+        : [...prev, brand]
+    );
   };
 
   const handleLeadFormSubmit = async (e: React.FormEvent) => {
@@ -173,6 +191,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
         price: 45999,
         originalPrice: 54999,
+        brand: 'Dell',
       },
       {
         title: 'Gaming Laptops',
@@ -180,6 +199,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80',
         price: 89999,
         originalPrice: 109999,
+        brand: 'ASUS',
       },
       {
         title: 'Desktop Computers',
@@ -187,6 +207,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&q=80',
         price: 35999,
         originalPrice: 42999,
+        brand: 'HP',
       },
     ],
     components: [
@@ -196,6 +217,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
         price: 12999,
         originalPrice: 15999,
+        brand: 'Corsair',
       },
       {
         title: 'Storage Drives',
@@ -203,6 +225,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
         price: 7499,
         originalPrice: 9999,
+        brand: 'Samsung',
       },
       {
         title: 'Graphics Cards',
@@ -210,6 +233,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80',
         price: 54999,
         originalPrice: 64999,
+        brand: 'NVIDIA',
       },
     ],
     accessories: [
@@ -219,6 +243,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80',
         price: 4999,
         originalPrice: 6999,
+        brand: 'Logitech',
       },
       {
         title: 'Monitors',
@@ -226,6 +251,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80',
         price: 32999,
         originalPrice: 42999,
+        brand: 'LG',
       },
       {
         title: 'Headsets',
@@ -233,6 +259,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&q=80',
         price: 3499,
         originalPrice: 4999,
+        brand: 'Sony',
       },
     ],
     networking: [
@@ -242,6 +269,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400&q=80',
         price: 8999,
         originalPrice: 11999,
+        brand: 'TP-Link',
       },
       {
         title: 'Network Switches',
@@ -249,6 +277,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&q=80',
         price: 5999,
         originalPrice: 7999,
+        brand: 'Cisco',
       },
       {
         title: 'Network Cables',
@@ -256,6 +285,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&q=80',
         price: 499,
         originalPrice: 799,
+        brand: 'D-Link',
       },
     ],
     surveillance: [
@@ -265,6 +295,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80',
         price: 3999,
         originalPrice: 5499,
+        brand: 'Hikvision',
       },
       {
         title: 'DVR/NVR Systems',
@@ -272,6 +303,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80',
         price: 15999,
         originalPrice: 19999,
+        brand: 'Dahua',
       },
       {
         title: 'Biometric Devices',
@@ -279,11 +311,21 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
         image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=80',
         price: 9999,
         originalPrice: 12999,
+        brand: 'ZKTeco',
       },
     ],
   };
 
   const allProducts = Object.values(products).flat();
+
+  // Extract unique brands
+  const allBrands = Array.from(new Set(allProducts.map(product => product.brand))).sort();
+
+  // Filter products based on selected brands
+  const filterProductsByBrand = (productsList: any[]) => {
+    if (selectedBrands.length === 0) return productsList;
+    return productsList.filter(product => selectedBrands.includes(product.brand));
+  };
 
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
@@ -305,6 +347,89 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {/* Products Section */}
       <section className="py-20">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          {/* Brand Filter - Professional Design */}
+          <div className="mb-8 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+            <div className="bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] px-6 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="bg-white/20 p-2 rounded-lg">
+                    <Filter className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-white">Filter by Brand</h3>
+                    <p className="text-blue-100 text-sm">Select one or more brands to refine results</p>
+                  </div>
+                </div>
+                {selectedBrands.length > 0 && (
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => setSelectedBrands([])}
+                    className="bg-white/20 hover:bg-white/30 text-white border-0"
+                  >
+                    <X className="h-4 w-4 mr-1" />
+                    Clear All
+                  </Button>
+                )}
+              </div>
+            </div>
+            
+            <div className="p-6">
+              {/* Selected Brands Display */}
+              {selectedBrands.length > 0 && (
+                <div className="mb-4 pb-4 border-b border-gray-100">
+                  <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-wide mb-2">
+                    Active Filters ({selectedBrands.length})
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedBrands.map((brand) => (
+                      <Badge
+                        key={brand}
+                        variant="secondary"
+                        className="bg-[#EEF2FF] text-[#1E40AF] hover:bg-[#DBEAFE] cursor-pointer px-3 py-1.5 text-sm font-medium"
+                        onClick={() => toggleBrand(brand)}
+                      >
+                        {brand}
+                        <X className="h-3 w-3 ml-2" />
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Brand Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                {allBrands.map((brand) => {
+                  const isSelected = selectedBrands.includes(brand);
+                  return (
+                    <button
+                      key={brand}
+                      onClick={() => toggleBrand(brand)}
+                      className={`
+                        relative group flex items-center justify-center px-4 py-3 rounded-lg border-2 transition-all duration-200
+                        ${isSelected 
+                          ? 'border-[#1E40AF] bg-[#EEF2FF] shadow-md' 
+                          : 'border-gray-200 bg-white hover:border-[#3B82F6] hover:bg-gray-50'
+                        }
+                      `}
+                    >
+                      {isSelected && (
+                        <div className="absolute -top-1 -right-1 bg-[#1E40AF] rounded-full p-0.5">
+                          <svg className="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      )}
+                      <span className={`font-medium text-sm ${isSelected ? 'text-[#1E40AF]' : 'text-[#4B5563]'}`}>
+                        {brand}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
           <Tabs defaultValue="all" className="w-full">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 mb-12 h-auto">
               {categories.map((category) => (
@@ -321,7 +446,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
 
             <TabsContent value="all">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {allProducts.map((product, index) => (
+                {filterProductsByBrand(allProducts).map((product, index) => (
                   <Card key={index} className="border-none shadow-lg overflow-hidden card-hover">
                     <div className="aspect-video overflow-hidden bg-gray-200">
                       <img
@@ -331,9 +456,14 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
                       />
                     </div>
                     <CardContent className="p-6">
-                      <h3 className="font-display text-xl font-bold text-[#1F2937] mb-2">
-                        {product.title}
-                      </h3>
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-display text-xl font-bold text-[#1F2937]">
+                          {product.title}
+                        </h3>
+                        <span className="text-xs font-semibold text-[#1E40AF] bg-[#EEF2FF] px-2 py-1 rounded">
+                          {product.brand}
+                        </span>
+                      </div>
                       <p className="text-[#6B7280] leading-relaxed mb-4">
                         {product.description}
                       </p>
@@ -360,7 +490,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
             {categories.filter(cat => cat.id !== 'all').map((category) => (
               <TabsContent key={category.id} value={category.id}>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {products[category.id as keyof typeof products].map((product, index) => (
+                  {filterProductsByBrand(products[category.id as keyof typeof products]).map((product, index) => (
                     <Card key={index} className="border-none shadow-lg overflow-hidden card-hover">
                       <div className="aspect-video overflow-hidden bg-gray-200">
                         <img
@@ -370,9 +500,14 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
                         />
                       </div>
                       <CardContent className="p-6">
-                        <h3 className="font-display text-xl font-bold text-[#1F2937] mb-2">
-                          {product.title}
-                        </h3>
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="font-display text-xl font-bold text-[#1F2937]">
+                            {product.title}
+                          </h3>
+                          <span className="text-xs font-semibold text-[#1E40AF] bg-[#EEF2FF] px-2 py-1 rounded">
+                            {product.brand}
+                          </span>
+                        </div>
                         <p className="text-[#6B7280] leading-relaxed mb-4">
                           {product.description}
                         </p>

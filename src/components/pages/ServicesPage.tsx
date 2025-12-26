@@ -168,6 +168,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       icon: Laptop,
       title: 'Laptop & Desktop Repair',
       description: 'Comprehensive repair services for all brands and models of laptops and desktop computers.',
+      link: '/services/laptop-desktop-repair',
       details: [
         'Hardware diagnostics and troubleshooting',
         'Screen replacement and repair',
@@ -183,6 +184,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       icon: HardDrive,
       title: 'Data Recovery Services',
       description: 'Professional data recovery from damaged, corrupted, or failed storage devices.',
+      link: '/services/data-recovery',
       details: [
         'Hard drive data recovery',
         'SSD data recovery',
@@ -198,6 +200,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       icon: Settings,
       title: 'Software Installation & Support',
       description: 'Complete software setup, installation, and optimization services.',
+      link: '/services/software-installation',
       details: [
         'Operating system installation (Windows, Linux, macOS)',
         'Software installation and configuration',
@@ -213,6 +216,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       icon: Camera,
       title: 'CCTV Installation',
       description: 'Professional surveillance camera installation and monitoring system setup.',
+      link: '/services/cctv-installation',
       details: [
         'CCTV camera installation',
         'DVR/NVR setup and configuration',
@@ -228,6 +232,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       icon: Fingerprint,
       title: 'Biometric Systems',
       description: 'Advanced biometric attendance and access control system installation.',
+      link: '/services/biometric-systems',
       details: [
         'Fingerprint attendance systems',
         'Face recognition systems',
@@ -243,6 +248,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       icon: Cpu,
       title: 'Hardware Parts & Accessories',
       description: 'Genuine computer parts and accessories at competitive prices.',
+      link: '/products',
       details: [
         'RAM and storage upgrades',
         'Graphics cards',
@@ -305,12 +311,23 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
                         </div>
                       ))}
                     </div>
-                    <Button 
-                      className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
-                      onClick={() => handleGetQuoteClick(service.title)}
-                    >
-                      Get Quote
-                    </Button>
+                    <div className="flex flex-wrap gap-3">
+                      <Button 
+                        className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
+                        onClick={() => handleGetQuoteClick(service.title)}
+                      >
+                        Get Quote
+                      </Button>
+                      <Link to={service.link}>
+                        <Button 
+                          variant="outline"
+                          className="border-[#1E40AF] text-[#1E40AF] hover:bg-[#EEF2FF] btn-press"
+                        >
+                          Learn More
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
+                    </div>
                   </CardContent>
                 </Card>
               );
