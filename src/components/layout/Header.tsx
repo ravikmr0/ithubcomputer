@@ -21,31 +21,28 @@ const Header = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-  // Searchable data
+  // Searchable data with direct links to specific pages
   const searchData = {
     services: [
-      { title: 'Laptop & Desktop Repair', path: '/services', category: 'Services' },
-      { title: 'Data Recovery Services', path: '/services', category: 'Services' },
-      { title: 'Software Installation & Support', path: '/services', category: 'Services' },
-      { title: 'CCTV Installation', path: '/services', category: 'Services' },
-      { title: 'Biometric Systems', path: '/services', category: 'Services' },
-      { title: 'Network Setup', path: '/services', category: 'Services' },
+      { title: 'Laptop & Desktop Repair', path: '/services/laptop-desktop-repair', category: 'Services', keywords: ['laptop', 'desktop', 'repair', 'computer', 'fix', 'broken'] },
+      { title: 'Data Recovery Services', path: '/services/data-recovery', category: 'Services', keywords: ['data', 'recovery', 'lost', 'files', 'backup', 'restore'] },
+      { title: 'Software Installation & Support', path: '/services/software-installation', category: 'Services', keywords: ['software', 'installation', 'install', 'setup', 'windows', 'office', 'antivirus'] },
+      { title: 'CCTV Installation', path: '/services/cctv-installation', category: 'Services', keywords: ['cctv', 'camera', 'security', 'surveillance', 'video', 'monitoring'] },
+      { title: 'Biometric Systems', path: '/services/biometric-systems', category: 'Services', keywords: ['biometric', 'fingerprint', 'attendance', 'access', 'control', 'scanner'] },
     ],
     products: [
-      { title: 'Business Laptops', path: '/products', category: 'Products' },
-      { title: 'Gaming Laptops', path: '/products', category: 'Products' },
-      { title: 'Desktop Computers', path: '/products', category: 'Products' },
-      { title: 'RAM Modules', path: '/products', category: 'Products' },
-      { title: 'Hard Drives', path: '/products', category: 'Products' },
-      { title: 'Processors', path: '/products', category: 'Products' },
-      { title: 'Keyboards & Mouse', path: '/products', category: 'Products' },
-      { title: 'Monitors', path: '/products', category: 'Products' },
-      { title: 'Printers & Scanners', path: '/products', category: 'Products' },
-      { title: 'Network Equipment', path: '/products', category: 'Products' },
-      { title: 'CCTV Systems', path: '/products', category: 'Products' },
-      { title: 'Biometric Devices', path: '/products', category: 'Products' },
+      { title: 'Hardware Parts', path: '/products/hardware-parts', category: 'Products', keywords: ['hardware', 'parts', 'components', 'motherboard', 'processor', 'cpu', 'gpu'] },
+      { title: 'Laptops & Notebooks', path: '/products/laptops-notebooks', category: 'Products', keywords: ['laptop', 'notebook', 'portable', 'computer', 'business', 'gaming'] },
+      { title: 'Desktop Computers', path: '/products/desktop-computers', category: 'Products', keywords: ['desktop', 'computer', 'pc', 'tower', 'workstation'] },
+      { title: 'Monitors & Displays', path: '/products/monitors-displays', category: 'Products', keywords: ['monitor', 'display', 'screen', 'lcd', 'led', 'curved'] },
+      { title: 'Keyboards', path: '/products/keyboards', category: 'Products', keywords: ['keyboard', 'mechanical', 'wireless', 'gaming', 'typing'] },
+      { title: 'Mouse & Trackpads', path: '/products/mouse-trackpads', category: 'Products', keywords: ['mouse', 'trackpad', 'wireless', 'gaming', 'optical'] },
+      { title: 'Storage Devices', path: '/products/storage-devices', category: 'Products', keywords: ['storage', 'hard drive', 'ssd', 'hdd', 'external', 'usb', 'flash'] },
+      { title: 'Memory RAM', path: '/products/memory-ram', category: 'Products', keywords: ['ram', 'memory', 'ddr4', 'ddr5', 'upgrade'] },
+      { title: 'Audio Equipment', path: '/products/audio-equipment', category: 'Products', keywords: ['audio', 'speaker', 'headphone', 'sound', 'microphone'] },
+      { title: 'Printers & Scanners', path: '/products/printers-scanners', category: 'Products', keywords: ['printer', 'scanner', 'print', 'ink', 'laser', 'copy'] },
     ],
-    pages: navLinks.map(link => ({ title: link.name, path: link.path, category: 'Pages' })),
+    pages: navLinks.map(link => ({ title: link.name, path: link.path, category: 'Pages', keywords: [] as string[] })),
   };
 
   // Handle search
@@ -54,16 +51,24 @@ const Header = () => {
       const query = searchQuery.toLowerCase();
       const results: any[] = [];
 
-      // Search through all data
+      // Search through all data (title and keywords)
       Object.values(searchData).forEach(items => {
         items.forEach(item => {
-          if (item.title.toLowerCase().includes(query)) {
+          const titleMatch = item.title.toLowerCase().includes(query);
+          const keywordMatch = item.keywords?.some((keyword: string) => keyword.toLowerCase().includes(query));
+          
+          if (titleMatch || keywordMatch) {
             results.push(item);
           }
         });
       });
 
-      setSearchResults(results.slice(0, 8)); // Limit to 8 results
+      // Remove duplicates and limit to 8 results
+      const uniqueResults = results.filter((item, index, self) => 
+        index === self.findIndex(t => t.path === item.path)
+      );
+      
+      setSearchResults(uniqueResults.slice(0, 8));
       setShowSearchResults(true);
     } else {
       setSearchResults([]);

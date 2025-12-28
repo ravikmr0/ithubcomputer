@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Laptop, Monitor, Keyboard, Mouse, HardDrive, MemoryStick, Cpu, Wrench, Camera, Fingerprint, Settings, Database } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Laptop, Monitor, Keyboard, Mouse, HardDrive, MemoryStick, Cpu, Wrench, Camera, Fingerprint, Settings, Database, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   const services = [
@@ -150,35 +150,54 @@ const Footer = () => {
             </ul>
 
             {/* Social Links */}
-            <div className="flex space-x-3 mt-6">
-              <a
-                href="https://www.facebook.com/share/17nWFpAyTQ/"
-                className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#1E40AF] transition-all duration-300 hover:scale-110"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/ithub_computer/"
-                className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#1E40AF] transition-all duration-300 hover:scale-110"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://youtube.com/@ithubcomputer141noida?si=7AiGLSS7yh1idX6n"
-                className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#FF0000] transition-all duration-300 hover:scale-110"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#0A66C2] transition-all duration-300 hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold text-gray-300 mb-3">Follow Us</h4>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://whatsapp.com/channel/0029VbAGrHQLY6d0kdgLwM1w"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#25D366] transition-all duration-300 hover:scale-110 group"
+                  aria-label="WhatsApp Channel"
+                  title="Join our WhatsApp Channel"
+                >
+                  <MessageCircle className="w-5 h-5 group-hover:text-white" />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/17nWFpAyTQ/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#1877F2] transition-all duration-300 hover:scale-110"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/ithub_computer/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] transition-all duration-300 hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://youtube.com/@ithubcomputer141noida?si=7AiGLSS7yh1idX6n"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#FF0000] transition-all duration-300 hover:scale-110"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#0A66C2] transition-all duration-300 hover:scale-110"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
