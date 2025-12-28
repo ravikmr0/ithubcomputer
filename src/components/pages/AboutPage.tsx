@@ -85,7 +85,7 @@ const AboutPage = () => {
                   </Button>
                 </Link>
                 <Link to="/services">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 btn-press">
+                  <Button size="lg" variant="outline" className="border-white text-[#1E40AF] hover:bg-white/10 btn-press">
                     Our Services
                   </Button>
                 </Link>

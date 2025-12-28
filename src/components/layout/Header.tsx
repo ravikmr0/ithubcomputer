@@ -105,7 +105,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <img 
-                src="/ithubnew.png" 
+                src="/ithubcom.png" 
                 alt="ITHUB Computer" 
                 className="h-10 w-auto flex-shrink-0"
               />
@@ -167,7 +167,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="/ithubnew.png" 
+              src="/ithubcom.png" 
               alt="ITHUB Computer" 
               className="h-12 w-auto"
             />

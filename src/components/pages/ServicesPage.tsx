@@ -333,7 +333,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-2 border-white/50 text-white hover:bg-white/10 font-semibold px-8"
+                    className="border-2 border-white/50 text-[#1E40AF] hover:bg-white/10 font-semibold px-8"
                   >
                     Contact Us
                   </Button>
@@ -520,9 +520,9 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8"
+                className="border-2 border-white text-[#1E40AF] hover:bg-white/10 font-semibold px-8"
               >
-                Call: +91 97792 86917
+                Call: +91 9779286917
               </Button>
             </a>
           </div>
