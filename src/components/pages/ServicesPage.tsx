@@ -8,7 +8,13 @@ import {
   Fingerprint, 
   Cpu,
   ArrowRight,
-  Loader2
+  Loader2,
+  CheckCircle2,
+  Shield,
+  Clock,
+  Award,
+  Headphones,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,6 +23,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
+import { Badge } from '@/components/ui/badge';
 
 const ServicesPage = () => {
   const { toast } = useToast();
@@ -167,164 +174,280 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
     {
       icon: Laptop,
       title: 'Laptop & Desktop Repair',
-      description: 'Comprehensive repair services for all brands and models of laptops and desktop computers.',
+      description: 'Expert repair services for all brands including Dell, HP, Lenovo, ASUS, Acer, and Apple. We fix hardware and software issues with genuine parts and warranty.',
       link: '/services/laptop-desktop-repair',
+      badge: 'Most Popular',
+      badgeColor: 'bg-emerald-500',
+      image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80',
       details: [
-        'Hardware diagnostics and troubleshooting',
-        'Screen replacement and repair',
-        'Keyboard and touchpad replacement',
-        'Battery replacement',
-        'Motherboard repair',
-        'Overheating issues resolution',
-        'Power jack repair',
-        'Virus and malware removal',
+        'Complete hardware diagnostics & troubleshooting',
+        'Screen replacement (LCD/LED/OLED)',
+        'Keyboard & touchpad replacement',
+        'Battery & charging port repair',
+        'Motherboard level repair',
+        'Overheating & thermal paste service',
+        'Virus & malware removal',
+        'Data backup & migration',
       ],
     },
     {
       icon: HardDrive,
       title: 'Data Recovery Services',
-      description: 'Professional data recovery from damaged, corrupted, or failed storage devices.',
+      description: 'Professional data recovery from damaged, corrupted, or failed storage devices. We recover data that others can\'t with 95%+ success rate.',
       link: '/services/data-recovery',
+      badge: '95% Success Rate',
+      badgeColor: 'bg-blue-500',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
       details: [
-        'Hard drive data recovery',
-        'SSD data recovery',
-        'USB flash drive recovery',
-        'Memory card recovery',
-        'RAID recovery',
+        'Hard drive data recovery (HDD/SSD)',
+        'USB & external drive recovery',
+        'Memory card & SD card recovery',
+        'RAID array data recovery',
         'Deleted file recovery',
         'Formatted drive recovery',
-        'Physical damage recovery',
+        'Water/fire damaged device recovery',
+        'Encrypted data recovery',
       ],
     },
     {
       icon: Settings,
       title: 'Software Installation & Support',
-      description: 'Complete software setup, installation, and optimization services.',
+      description: 'Complete software setup, OS installation, system optimization, and ongoing technical support for individuals and businesses.',
       link: '/services/software-installation',
+      badge: 'Quick Service',
+      badgeColor: 'bg-purple-500',
+      image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80',
       details: [
-        'Operating system installation (Windows, Linux, macOS)',
-        'Software installation and configuration',
-        'Driver updates and installation',
-        'System optimization and cleanup',
-        'Antivirus installation and setup',
-        'Office suite installation',
-        'Custom software setup',
-        'System backup solutions',
+        'Windows, Linux & macOS installation',
+        'MS Office & productivity software',
+        'Antivirus & security setup',
+        'Driver installation & updates',
+        'System optimization & cleanup',
+        'Cloud backup configuration',
+        'Custom software deployment',
+        'Remote technical support',
       ],
     },
     {
       icon: Camera,
       title: 'CCTV Installation',
-      description: 'Professional surveillance camera installation and monitoring system setup.',
+      description: 'Professional security surveillance systems for homes, offices, and businesses. 24/7 monitoring capability with mobile app access.',
       link: '/services/cctv-installation',
+      badge: '24/7 Security',
+      badgeColor: 'bg-red-500',
+      image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80',
       details: [
-        'CCTV camera installation',
-        'DVR/NVR setup and configuration',
-        'Remote viewing setup',
-        'Network configuration',
-        'Cable routing and management',
-        'Multiple camera systems',
-        'Night vision cameras',
-        'Maintenance and support',
+        'HD & 4K camera installation',
+        'DVR/NVR setup & configuration',
+        'Mobile app remote viewing',
+        'Night vision & IR cameras',
+        'Motion detection alerts',
+        'Cloud storage integration',
+        'Concealed cable management',
+        'Annual maintenance packages',
       ],
     },
     {
       icon: Fingerprint,
       title: 'Biometric Systems',
-      description: 'Advanced biometric attendance and access control system installation.',
+      description: 'Advanced biometric attendance and access control systems for offices and institutions. Accurate time tracking with comprehensive reports.',
       link: '/services/biometric-systems',
+      badge: 'Smart Security',
+      badgeColor: 'bg-indigo-500',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80',
       details: [
-        'Fingerprint attendance systems',
+        'Fingerprint attendance machines',
         'Face recognition systems',
-        'Access control installation',
-        'Time and attendance software',
-        'Integration with existing systems',
-        'Multi-location setup',
-        'Employee database management',
-        'Report generation setup',
+        'Access control door locks',
+        'Time & attendance software',
+        'Multi-branch integration',
+        'Payroll system integration',
+        'Employee management portal',
+        'Custom report generation',
       ],
     },
     {
       icon: Cpu,
-      title: 'Hardware Parts & Accessories',
-      description: 'Genuine computer parts and accessories at competitive prices.',
+      title: 'Hardware Parts & Upgrades',
+      description: 'Genuine computer components and upgrades at competitive prices. Expert installation and compatibility consultation included.',
       link: '/products',
+      badge: 'Genuine Parts',
+      badgeColor: 'bg-orange-500',
+      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&q=80',
       details: [
-        'RAM and storage upgrades',
-        'Graphics cards',
-        'Processors and motherboards',
-        'Power supplies',
-        'Cooling systems',
-        'Keyboards and mice',
-        'Monitors and displays',
-        'Networking equipment',
+        'RAM upgrades (DDR4/DDR5)',
+        'SSD & storage upgrades',
+        'Graphics card installation',
+        'Processor & motherboard',
+        'Power supply replacement',
+        'Cooling system upgrades',
+        'Peripherals & accessories',
+        'Custom PC building',
       ],
     },
   ];
 
+  const whyChooseUs = [
+    { icon: Shield, title: 'Warranty Protected', description: 'All services come with minimum 30-day warranty' },
+    { icon: Clock, title: 'Quick Turnaround', description: 'Most repairs completed within 24-48 hours' },
+    { icon: Award, title: '10+ Years Experience', description: 'Trusted by thousands of customers' },
+    { icon: Headphones, title: '24/7 Support', description: 'Round-the-clock technical assistance' },
+  ];
+
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] text-white py-20">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Our Services
-            </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              Comprehensive IT solutions for all your technology needs. From repairs to installations, 
-              we've got you covered with expert service and genuine parts.
-            </p>
+      {/* Hero Section - Enhanced */}
+      <section className="relative bg-gradient-to-br from-[#0F172A] via-[#1E40AF] to-[#3B82F6] text-white py-24 overflow-hidden">
+        {/* Animated background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=40')] bg-cover bg-center opacity-10"></div>
+        
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="bg-white/20 text-white border-white/30 mb-6 px-4 py-2">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Trusted by 5000+ Customers
+              </Badge>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Professional IT
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200"> Services</span>
+              </h1>
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8">
+                Expert computer repair, data recovery, CCTV installation, and comprehensive IT solutions. 
+                Fast, reliable, and backed by warranty.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-[#1E40AF] hover:bg-blue-50 font-semibold px-8 shadow-lg shadow-white/20"
+                  onClick={() => handleGetQuoteClick('General Inquiry')}
+                >
+                  Get Free Quote
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <Link to="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-2 border-white/50 text-white hover:bg-white/10 font-semibold px-8"
+                  >
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Stats Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: '10+', label: 'Years Experience', icon: Award },
+                { value: '5000+', label: 'Happy Customers', icon: CheckCircle2 },
+                { value: '24/7', label: 'Support Available', icon: Headphones },
+                { value: '95%', label: 'Success Rate', icon: Shield },
+              ].map((stat, idx) => (
+                <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                  <stat.icon className="w-8 h-8 text-cyan-300 mb-3" />
+                  <div className="text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="text-blue-200 text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Detail */}
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, idx) => (
+              <div key={idx} className="text-center group">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/20">
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-display font-bold text-[#1F2937] mb-1">{item.title}</h3>
+                <p className="text-sm text-[#6B7280]">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section - Enhanced Grid */}
       <section className="py-20">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="space-y-12">
+          <div className="text-center mb-16">
+            <Badge className="bg-[#EEF2FF] text-[#1E40AF] mb-4">Our Services</Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
+              Comprehensive IT Solutions
+            </h2>
+            <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+              From computer repairs to security installations, we provide end-to-end IT services for homes and businesses
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={index} className="border-none shadow-lg overflow-hidden">
-                  <CardHeader className="bg-white border-b border-gray-100 pb-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-16 h-16 rounded-lg bg-[#1E40AF]/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-8 h-8 text-[#1E40AF]" strokeWidth={2} />
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle className="font-display text-2xl font-bold text-[#1F2937] mb-2">
-                          {service.title}
-                        </CardTitle>
-                        <p className="text-[#6B7280] leading-relaxed">
-                          {service.description}
-                        </p>
+                <Card key={index} className="group border-none shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 bg-white">
+                  {/* Image Header */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <Badge className={`absolute top-4 right-4 ${service.badgeColor} text-white border-0 shadow-lg`}>
+                      {service.badge}
+                    </Badge>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="w-14 h-14 rounded-xl bg-white/95 backdrop-blur flex items-center justify-center shadow-lg">
+                        <Icon className="w-7 h-7 text-[#1E40AF]" strokeWidth={2} />
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="pt-8 pb-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                      {service.details.map((detail, idx) => (
-                        <div key={idx} className="flex items-start space-x-3">
-                          <ArrowRight className="w-5 h-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                          <span className="text-[#1F2937]">{detail}</span>
+                  </div>
+                  
+                  <CardContent className="p-6">
+                    <h3 className="font-display text-xl font-bold text-[#1F2937] mb-3 group-hover:text-[#1E40AF] transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-[#6B7280] text-sm leading-relaxed mb-4 line-clamp-2">
+                      {service.description}
+                    </p>
+                    
+                    {/* Features Preview */}
+                    <div className="space-y-2 mb-6">
+                      {service.details.slice(0, 4).map((detail, idx) => (
+                        <div key={idx} className="flex items-center space-x-2 text-sm">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                          <span className="text-[#4B5563] truncate">{detail}</span>
                         </div>
                       ))}
+                      {service.details.length > 4 && (
+                        <p className="text-[#1E40AF] text-sm font-medium">+{service.details.length - 4} more services</p>
+                      )}
                     </div>
-                    <div className="flex flex-wrap gap-3">
+                    
+                    <div className="flex gap-3">
                       <Button 
-                        className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
+                        className="flex-1 bg-[#1E40AF] hover:bg-[#3B82F6] text-white shadow-md shadow-blue-500/20"
                         onClick={() => handleGetQuoteClick(service.title)}
                       >
                         Get Quote
                       </Button>
-                      <Link to={service.link}>
+                      <Link to={service.link} className="flex-1">
                         <Button 
                           variant="outline"
-                          className="border-[#1E40AF] text-[#1E40AF] hover:bg-[#EEF2FF] btn-press"
+                          className="w-full border-[#1E40AF] text-[#1E40AF] hover:bg-[#EEF2FF]"
                         >
-                          Learn More
-                          <ArrowRight className="w-4 h-4 ml-2" />
+                          Details
+                          <ArrowRight className="w-4 h-4 ml-1" />
                         </Button>
                       </Link>
                     </div>
@@ -336,23 +459,73 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Process Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1F2937] mb-6">
-            Need a Custom Solution?
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="bg-[#EEF2FF] text-[#1E40AF] mb-4">How It Works</Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
+              Simple & Transparent Process
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8 relative">
+            {/* Connection Line */}
+            <div className="hidden md:block absolute top-16 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-[#1E40AF] via-[#3B82F6] to-[#1E40AF]"></div>
+            
+            {[
+              { step: '01', title: 'Contact Us', desc: 'Call, WhatsApp, or visit our store with your requirements' },
+              { step: '02', title: 'Free Diagnosis', desc: 'We diagnose the issue and provide a transparent quote' },
+              { step: '03', title: 'Expert Service', desc: 'Our certified technicians work on your device with care' },
+              { step: '04', title: 'Quality Assured', desc: 'Pick up your device with warranty and support' },
+            ].map((item, idx) => (
+              <div key={idx} className="relative text-center">
+                <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-blue-500/30 mb-6 relative z-10">
+                  {item.step}
+                </div>
+                <h3 className="font-display font-bold text-lg text-[#1F2937] mb-2">{item.title}</h3>
+                <p className="text-[#6B7280] text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Enhanced */}
+      <section className="py-20 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-300 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8 text-center relative z-10">
+          <Sparkles className="w-12 h-12 text-cyan-300 mx-auto mb-6" />
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+            Need a Custom IT Solution?
           </h2>
-          <p className="text-lg text-[#6B7280] mb-8 max-w-2xl mx-auto">
-            We offer customized IT solutions tailored to your specific requirements. 
-            Contact us to discuss your needs.
+          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+            Whether you're a student, professional, or business owner - we have tailored solutions for your specific needs. 
+            Get in touch for a free consultation!
           </p>
-          <Button 
-            size="lg" 
-            className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white btn-press"
-            onClick={() => handleGetQuoteClick('Custom IT Solution')}
-          >
-            Contact Us Today
-          </Button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button 
+              size="lg" 
+              className="bg-white text-[#1E40AF] hover:bg-blue-50 font-semibold px-8 shadow-lg"
+              onClick={() => handleGetQuoteClick('Custom IT Solution')}
+            >
+              Request Custom Quote
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <a href="tel:+919779286917">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8"
+              >
+                Call: +91 97792 86917
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
