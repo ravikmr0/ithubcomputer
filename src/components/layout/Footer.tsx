@@ -154,7 +154,7 @@ const Footer = () => {
               <h4 className="text-sm font-semibold text-gray-300 mb-3">Follow Us</h4>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://whatsapp.com/channel/0029VbAGrHQLY6d0kdgLwM1w"
+                  href="https://whatsapp.com/channel/0029VbBZwsHK5cD8riQW9G0G"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#25D366] transition-all duration-300 hover:scale-110 group"
@@ -190,13 +190,7 @@ const Footer = () => {
                 >
                   <Youtube className="w-5 h-5" />
                 </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-lg bg-[#374151] flex items-center justify-center hover:bg-[#0A66C2] transition-all duration-300 hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
+                
               </div>
             </div>
           </div>
