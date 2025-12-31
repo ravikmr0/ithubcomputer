@@ -90,7 +90,7 @@ const DesktopComputersPage = () => {
     {
       title: 'Office Desktop PC',
       description: 'Reliable desktops for everyday office tasks, documentation, and light computing.',
-      image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51ZDfTswzFL._SL1500_.jpg',
       price: 28999,
       originalPrice: 34999,
       features: ['Intel Core i3/i5', '8GB RAM', '256GB SSD', 'Windows 11']
@@ -98,7 +98,7 @@ const DesktopComputersPage = () => {
     {
       title: 'Business Workstation',
       description: 'Powerful workstations for demanding business applications and multitasking.',
-      image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61P8K45KfTL._SX425_.jpg',
       price: 55999,
       originalPrice: 65999,
       features: ['Intel Core i7', '16GB RAM', '512GB SSD', 'Productivity Suite']
@@ -106,7 +106,7 @@ const DesktopComputersPage = () => {
     {
       title: 'Gaming Desktop',
       description: 'High-performance gaming PCs with dedicated graphics for ultimate gaming experience.',
-      image: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71BCxbHZdkL._SL1500_.jpg',
       price: 85999,
       originalPrice: 99999,
       features: ['RTX 4060/4070', '16GB+ RAM', 'RGB Lighting', 'Gaming Case']
@@ -114,7 +114,7 @@ const DesktopComputersPage = () => {
     {
       title: 'All-in-One PC',
       description: 'Space-saving all-in-one computers with sleek design and powerful performance.',
-      image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71EnDeI4HnL._SL1500_.jpg',
       price: 45999,
       originalPrice: 52999,
       features: ['23-27" Display', 'Intel Core i5', '8GB RAM', 'Clean Setup']
@@ -122,7 +122,7 @@ const DesktopComputersPage = () => {
     {
       title: 'Mini PC',
       description: 'Compact and portable mini PCs perfect for home entertainment and light work.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51BfuZ3RPKL._SL1500_.jpg',
       price: 22999,
       originalPrice: 27999,
       features: ['Compact Design', 'Energy Efficient', 'Quiet Operation', 'VESA Mount']
@@ -130,7 +130,7 @@ const DesktopComputersPage = () => {
     {
       title: 'Custom Build PC',
       description: 'Build your dream PC with custom configurations tailored to your needs.',
-      image: 'https://images.unsplash.com/photo-1555617778-02518510b9fa?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71NqeLLOiEL._SL1500_.jpg',
       price: 35999,
       originalPrice: null,
       features: ['Choose Components', 'Expert Assembly', 'Cable Management', 'Testing Included']

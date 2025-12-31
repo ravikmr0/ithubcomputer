@@ -90,7 +90,7 @@ const MouseTrackpadsPage = () => {
     {
       title: 'Wired Mouse',
       description: 'Reliable wired mice for everyday computing and office work.',
-      image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71j6PDIwegL._SL1500_.jpg',
       price: 299,
       originalPrice: 499,
       features: ['Optical Sensor', 'Ergonomic Design', 'Plug & Play', 'Durable Build']
@@ -98,7 +98,7 @@ const MouseTrackpadsPage = () => {
     {
       title: 'Wireless Mouse',
       description: 'Cable-free wireless mice with reliable connectivity.',
-      image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61AeUJwifcL._SL1500_.jpg',
       price: 799,
       originalPrice: 1199,
       features: ['2.4GHz Wireless', 'Long Battery Life', 'Silent Clicks', 'Compact Design']
@@ -106,7 +106,7 @@ const MouseTrackpadsPage = () => {
     {
       title: 'Gaming Mouse',
       description: 'High-precision gaming mice with customizable buttons and RGB.',
-      image: 'https://images.unsplash.com/photo-1623820919239-0d0ff10797a1?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51jFOZuPzYL._SL1500_.jpg',
       price: 2499,
       originalPrice: 2999,
       features: ['High DPI Sensor', 'Programmable Buttons', 'RGB Lighting', 'Adjustable Weight']
@@ -114,7 +114,7 @@ const MouseTrackpadsPage = () => {
     {
       title: 'Ergonomic Mouse',
       description: 'Vertically designed mice for comfort and reduced wrist strain.',
-      image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51Oe78RFkML._SL1500_.jpg',
       price: 1499,
       originalPrice: 1999,
       features: ['Vertical Design', 'Wrist Support', 'Multiple Buttons', 'Wireless Option']
@@ -122,7 +122,7 @@ const MouseTrackpadsPage = () => {
     {
       title: 'Trackpads',
       description: 'Touch-based trackpads for gesture control and precise navigation.',
-      image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61WKVeq-RZL._SL1500_.jpg',
       price: 3999,
       originalPrice: 4999,
       features: ['Multi-touch Gestures', 'Glass Surface', 'Bluetooth', 'Rechargeable']
@@ -130,7 +130,7 @@ const MouseTrackpadsPage = () => {
     {
       title: 'Bluetooth Mouse',
       description: 'Bluetooth mice that connect without USB receivers.',
-      image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/41d107wh7KL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg',
       price: 1299,
       originalPrice: 1699,
       features: ['Bluetooth 5.0', 'Multi-device Pairing', 'USB-C Charging', 'Slim Profile']

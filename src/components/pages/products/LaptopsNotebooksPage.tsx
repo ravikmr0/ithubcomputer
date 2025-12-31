@@ -90,7 +90,7 @@ const LaptopsNotebooksPage = () => {
     {
       title: 'Business Laptops',
       description: 'High-performance laptops for professionals and businesses. Reliable, secure, and built for productivity.',
-      image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/314AIJE3c+L.jpg',
       price: 45999,
       originalPrice: 54999,
       features: ['Intel Core i5/i7 Processors', '8GB-16GB RAM', 'SSD Storage', 'Windows 11 Pro']
@@ -98,7 +98,7 @@ const LaptopsNotebooksPage = () => {
     {
       title: 'Gaming Laptops',
       description: 'Powerful gaming laptops with dedicated graphics for immersive gaming experience.',
-      image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71X+a0NItZL._SL1500_.jpg',
       price: 89999,
       originalPrice: 109999,
       features: ['RTX Graphics', 'High Refresh Display', '16GB+ RAM', 'RGB Keyboard']
@@ -106,7 +106,7 @@ const LaptopsNotebooksPage = () => {
     {
       title: 'Student Laptops',
       description: 'Affordable and reliable laptops perfect for students and everyday use.',
-      image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71fHNU8KnQL._SL1500_.jpg',
       price: 32999,
       originalPrice: 39999,
       features: ['Intel Core i3', '8GB RAM', '256GB SSD', 'Long Battery Life']
@@ -114,7 +114,7 @@ const LaptopsNotebooksPage = () => {
     {
       title: 'Ultrabooks',
       description: 'Thin and light laptops with premium build quality and excellent portability.',
-      image: 'https://images.unsplash.com/photo-1541807084-5c52b6b92e97?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/81aZPvpkQ0L._SL1500_.jpg',
       price: 75999,
       originalPrice: 89999,
       features: ['Ultra-thin Design', 'All-day Battery', 'High-res Display', 'Fast Charging']
@@ -122,7 +122,7 @@ const LaptopsNotebooksPage = () => {
     {
       title: 'Workstation Laptops',
       description: 'Professional workstations for CAD, video editing, and heavy workloads.',
-      image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/616D2RabY1L.jpg',
       price: 125999,
       originalPrice: 149999,
       features: ['Xeon/i9 Processor', '32GB+ RAM', 'Quadro Graphics', 'ISV Certified']
@@ -130,7 +130,7 @@ const LaptopsNotebooksPage = () => {
     {
       title: '2-in-1 Convertibles',
       description: 'Versatile laptops that convert to tablets with touchscreen functionality.',
-      image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61oPlrp8O9L._SL1080_.jpg',
       price: 59999,
       originalPrice: 69999,
       features: ['360° Hinge', 'Touch Display', 'Stylus Support', 'Windows 11']

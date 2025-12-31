@@ -90,7 +90,7 @@ const MemoryRAMPage = () => {
     {
       title: 'DDR4 Desktop RAM',
       description: 'High-performance DDR4 memory modules for desktop computers.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61P-Ax9vEuL._SL1280_.jpg',
       price: 1999,
       originalPrice: 2499,
       features: ['8GB-32GB Modules', '2666-3600MHz', 'DIMM Form Factor', 'Lifetime Warranty']
@@ -98,7 +98,7 @@ const MemoryRAMPage = () => {
     {
       title: 'DDR5 Desktop RAM',
       description: 'Next-gen DDR5 memory for the latest Intel and AMD platforms.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/611n3F+AQJL._SL1500_.jpg',
       price: 4999,
       originalPrice: 5999,
       features: ['16GB-32GB Modules', '4800-6400MHz', 'On-die ECC', 'Better Efficiency']
@@ -106,7 +106,7 @@ const MemoryRAMPage = () => {
     {
       title: 'DDR4 Laptop RAM',
       description: 'Compatible DDR4 SO-DIMM memory for laptop upgrades.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/717UzH-ehML._SL1500_.jpg',
       price: 1799,
       originalPrice: 2299,
       features: ['8GB-32GB Options', 'SO-DIMM Form Factor', '2666-3200MHz', 'Low Profile']
@@ -114,7 +114,7 @@ const MemoryRAMPage = () => {
     {
       title: 'DDR5 Laptop RAM',
       description: 'DDR5 SO-DIMM for latest generation laptops and notebooks.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61u+ioPoR1L._SL1080_.jpg',
       price: 4499,
       originalPrice: 5499,
       features: ['16GB-32GB Options', 'SO-DIMM DDR5', '4800MHz+', 'Improved Power']
@@ -122,7 +122,7 @@ const MemoryRAMPage = () => {
     {
       title: 'Gaming RGB RAM',
       description: 'High-speed gaming memory with RGB lighting effects.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51WMG-qMFOL._SL1500_.jpg',
       price: 5999,
       originalPrice: 7499,
       features: ['RGB Lighting', 'XMP Support', '3200-4000MHz', 'Heat Spreader']
@@ -130,7 +130,7 @@ const MemoryRAMPage = () => {
     {
       title: 'Server/ECC RAM',
       description: 'Error-correcting memory for servers and workstations.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/5108P3H+jzL._SL1024_.jpg',
       price: 6999,
       originalPrice: 8499,
       features: ['ECC Memory', 'Registered/Unbuffered', '16GB-64GB', 'Server Grade']

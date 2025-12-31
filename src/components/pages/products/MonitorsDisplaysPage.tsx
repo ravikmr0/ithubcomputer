@@ -90,7 +90,7 @@ const MonitorsDisplaysPage = () => {
     {
       title: 'Office Monitors',
       description: 'Essential monitors for office work with eye-care technology and crisp displays.',
-      image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71Y2O3oiGEL._SL1500_.jpg',
       price: 8999,
       originalPrice: 11999,
       features: ['21-24" Display', 'Full HD Resolution', 'Eye-Care Technology', 'HDMI/VGA']
@@ -98,7 +98,7 @@ const MonitorsDisplaysPage = () => {
     {
       title: 'Gaming Monitors',
       description: 'High refresh rate monitors for competitive gaming and smooth visuals.',
-      image: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71W4FCERPcL._SL1500_.jpg',
       price: 24999,
       originalPrice: 29999,
       features: ['144Hz+ Refresh Rate', '1ms Response Time', 'AMD FreeSync/G-Sync', 'Curved Display']
@@ -106,7 +106,7 @@ const MonitorsDisplaysPage = () => {
     {
       title: 'Professional Monitors',
       description: 'Color-accurate monitors for photo editing, video production, and design work.',
-      image: 'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61HLDoToJoL._SL1020_.jpg',
       price: 35999,
       originalPrice: 42999,
       features: ['4K Resolution', '99% sRGB', 'Factory Calibrated', 'USB-C Hub']
@@ -114,7 +114,7 @@ const MonitorsDisplaysPage = () => {
     {
       title: 'Ultrawide Monitors',
       description: 'Immersive ultrawide displays for productivity and entertainment.',
-      image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71ynrq8IqbL._SL1500_.jpg',
       price: 32999,
       originalPrice: 39999,
       features: ['34" Ultrawide', '21:9 Aspect Ratio', 'WQHD Resolution', 'Multitasking Split']
@@ -122,7 +122,7 @@ const MonitorsDisplaysPage = () => {
     {
       title: 'Portable Monitors',
       description: 'Lightweight portable monitors for mobile professionals and travelers.',
-      image: 'https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/7163FBwi-FL._SL1500_.jpg',
       price: 14999,
       originalPrice: 18999,
       features: ['15-17" Portable', 'USB-C Powered', 'Built-in Speakers', 'Kickstand Included']
@@ -130,7 +130,7 @@ const MonitorsDisplaysPage = () => {
     {
       title: '4K UHD Monitors',
       description: 'Crystal clear 4K monitors for the ultimate visual experience.',
-      image: 'https://images.unsplash.com/photo-1560941001-d4b52ad00ecc?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/81zPCw+2XcL._SL1500_.jpg',
       price: 28999,
       originalPrice: 34999,
       features: ['4K UHD Resolution', '27-32" Display', 'HDR Support', 'Wide Color Gamut']

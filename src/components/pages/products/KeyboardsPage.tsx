@@ -87,10 +87,10 @@ const KeyboardsPage = () => {
   };
 
   const products = [
-    {
+    { 
       title: 'Office Keyboards',
       description: 'Comfortable membrane keyboards for everyday office use and typing.',
-      image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61NKUR8rpPL._SY450_.jpg',
       price: 499,
       originalPrice: 799,
       features: ['Quiet Typing', 'Spill Resistant', 'USB/Wireless', 'Full Size Layout']
@@ -98,7 +98,7 @@ const KeyboardsPage = () => {
     {
       title: 'Mechanical Keyboards',
       description: 'Premium mechanical keyboards with tactile switches for typing enthusiasts.',
-      image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/715wHcOjXML._SL1500_.jpg',
       price: 2999,
       originalPrice: 3999,
       features: ['Cherry/Gateron Switches', 'RGB Backlight', 'Aluminum Frame', 'N-Key Rollover']
@@ -106,7 +106,7 @@ const KeyboardsPage = () => {
     {
       title: 'Gaming Keyboards',
       description: 'High-performance gaming keyboards with fast response and RGB lighting.',
-      image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/715wHcOjXML._SL1500_.jpg',
       price: 4999,
       originalPrice: 5999,
       features: ['Anti-ghosting', 'Macro Keys', 'RGB Lighting', 'Wrist Rest']
@@ -114,7 +114,7 @@ const KeyboardsPage = () => {
     {
       title: 'Wireless Keyboards',
       description: 'Cable-free wireless keyboards for a clean desk setup.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/616idSqXY0L._SL1500_.jpg',
       price: 1499,
       originalPrice: 1999,
       features: ['2.4GHz/Bluetooth', 'Long Battery Life', 'Compact Design', 'Multi-device']
@@ -122,7 +122,7 @@ const KeyboardsPage = () => {
     {
       title: 'Ergonomic Keyboards',
       description: 'Split and curved keyboards designed for comfort and reduced strain.',
-      image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61spLSFzWnL._SL1465_.jpg',
       price: 3499,
       originalPrice: 4499,
       features: ['Split Design', 'Palm Rest', 'Adjustable Tenting', 'Ergonomic Layout']
@@ -130,7 +130,7 @@ const KeyboardsPage = () => {
     {
       title: 'Compact Keyboards',
       description: 'Space-saving compact keyboards perfect for minimal setups.',
-      image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51UuDsRkLcL._SL1000_.jpg',
       price: 1999,
       originalPrice: 2499,
       features: ['60%/65% Layout', 'Portable', 'Hot-swappable', 'Premium Build']

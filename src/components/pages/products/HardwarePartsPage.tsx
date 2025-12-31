@@ -96,7 +96,7 @@ const HardwarePartsPage = () => {
       icon: Cpu,
       title: 'Processors',
       description: 'Intel and AMD processors for desktop and laptop upgrades.',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71e1ef+rE+L._SL1500_.jpg',
       price: 12999,
       originalPrice: 15999,
       features: ['Intel Core Series', 'AMD Ryzen', 'All Generations', 'Box/Tray']
@@ -105,7 +105,7 @@ const HardwarePartsPage = () => {
       icon: CircuitBoard,
       title: 'Motherboards',
       description: 'Desktop motherboards supporting latest Intel and AMD platforms.',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71mriqykVaL._SL1500_.jpg',
       price: 7999,
       originalPrice: 9999,
       features: ['Intel/AMD Chipsets', 'ATX/mATX/ITX', 'DDR4/DDR5', 'PCIe 4.0/5.0']
@@ -114,7 +114,7 @@ const HardwarePartsPage = () => {
       icon: HardDrive,
       title: 'Graphics Cards',
       description: 'NVIDIA and AMD graphics cards for gaming and professional work.',
-      image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/510+J06fz0L._SL1000_.jpg',
       price: 25999,
       originalPrice: 32999,
       features: ['NVIDIA RTX Series', 'AMD Radeon', 'Ray Tracing', 'DLSS Support']
@@ -123,7 +123,7 @@ const HardwarePartsPage = () => {
       icon: Zap,
       title: 'Power Supplies',
       description: 'Reliable PSUs with 80+ certification for stable power delivery.',
-      image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51DaEu8ilvL._SL1500_.jpg',
       price: 3499,
       originalPrice: 4499,
       features: ['80+ Bronze/Gold', '450W-1000W', 'Modular Options', '5-Year Warranty']
@@ -132,7 +132,7 @@ const HardwarePartsPage = () => {
       icon: Fan,
       title: 'Cooling Systems',
       description: 'CPU coolers and case fans for optimal thermal performance.',
-      image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/61ujVKXwkVL._SL1000_.jpg',
       price: 1999,
       originalPrice: 2999,
       features: ['Air/Liquid Cooling', 'RGB Options', 'Quiet Operation', 'Easy Install']
@@ -141,7 +141,7 @@ const HardwarePartsPage = () => {
       icon: Wifi,
       title: 'Network Cards',
       description: 'WiFi and ethernet cards for improved connectivity.',
-      image: 'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/41qROlMXQeL._SL1000_.jpg',
       price: 1499,
       originalPrice: 1999,
       features: ['WiFi 6/6E', 'Gigabit Ethernet', 'Bluetooth', 'PCIe/USB']

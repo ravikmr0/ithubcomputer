@@ -90,7 +90,7 @@ const StorageDevicesPage = () => {
     {
       title: 'Internal SSDs',
       description: 'High-speed solid state drives for lightning-fast system performance.',
-      image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51P37HmwbIL._SL1500_.jpg',
       price: 3499,
       originalPrice: 4499,
       features: ['SATA/NVMe Options', '256GB-2TB', 'Up to 7000MB/s', '5-year Warranty']
@@ -98,7 +98,7 @@ const StorageDevicesPage = () => {
     {
       title: 'Internal HDDs',
       description: 'High-capacity hard drives for mass storage needs.',
-      image: 'https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71gdido1NYL._SL1500_.jpg',
       price: 2999,
       originalPrice: 3999,
       features: ['1TB-8TB Options', '7200 RPM', 'Desktop/Laptop', 'Reliable Storage']
@@ -106,7 +106,7 @@ const StorageDevicesPage = () => {
     {
       title: 'External Hard Drives',
       description: 'Portable external storage for backup and file transfer.',
-      image: 'https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/510+J06fz0L._SL1000_.jpg',
       price: 4499,
       originalPrice: 5499,
       features: ['USB 3.0/3.1', '1TB-5TB', 'Shock Resistant', 'Portable Design']
@@ -114,7 +114,7 @@ const StorageDevicesPage = () => {
     {
       title: 'External SSDs',
       description: 'Fast portable SSDs for professionals on the go.',
-      image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/71QECJDuCYL._SL1500_.jpg',
       price: 6999,
       originalPrice: 8499,
       features: ['USB-C/Thunderbolt', 'Up to 2000MB/s', 'Compact Size', 'Rugged Options']
@@ -122,7 +122,7 @@ const StorageDevicesPage = () => {
     {
       title: 'USB Flash Drives',
       description: 'Compact USB drives for quick file storage and transfer.',
-      image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/41UeiYJc5-L.jpg',
       price: 499,
       originalPrice: 799,
       features: ['USB 3.0/3.1', '16GB-256GB', 'Compact Design', 'Keychain Hole']
@@ -130,7 +130,7 @@ const StorageDevicesPage = () => {
     {
       title: 'Memory Cards',
       description: 'SD and microSD cards for cameras and mobile devices.',
-      image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80',
+      image: 'https://m.media-amazon.com/images/I/51GpfFfU6nL._SL1200_.jpg',
       price: 699,
       originalPrice: 999,
       features: ['SD/microSD', 'Up to 512GB', 'High Speed Class', 'Video Ready']
