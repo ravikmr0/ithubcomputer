@@ -28,7 +28,9 @@ import {
   MessageSquare,
   Truck,
   Clock,
-  Award
+  Award,
+  CreditCard,
+  Percent
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -526,6 +528,27 @@ const HomePage = () => {
                   </Button>
                 </Link>
               </div>
+
+              {/* EMI Banner */}
+              <div className="mt-8 p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border-2 border-[#FFD700] max-w-md">
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full p-3">
+                    <CreditCard className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-bold text-[#1F2937] text-sm">Easy EMI Available</h3>
+                      <Badge className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-[#1F2937] text-xs font-bold border-0">
+                        <Percent className="w-3 h-3 mr-1" />
+                        0% Interest
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-[#6B7280] font-medium">
+                      Powered by <span className="font-bold text-[#1E40AF]">Bajaj Finserv</span> • Instant Approval
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -714,11 +737,11 @@ const HomePage = () => {
                 <Card 
                   className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white h-full"
                 >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden bg-gray-100 flex items-center justify-center p-4 h-48">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                   {product.badge && (
                     <Badge 

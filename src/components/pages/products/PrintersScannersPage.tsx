@@ -161,11 +161,11 @@ const PrintersScannersPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product) => (
               <Card key={product.id} className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white">
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden bg-gray-100 flex items-center justify-center p-4 h-48">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                   <Badge className="absolute top-3 left-3 bg-[#3B82F6]">{product.badge}</Badge>
                   {product.originalPrice > product.price && (
