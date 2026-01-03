@@ -331,38 +331,46 @@ ${formData.message}
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Location Section */}
       <section className="py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-bold text-[#1F2937] mb-8 text-center">
-            Find Us Here
-          </h2>
-          <div className="rounded-2xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/place/ithub+computer/@28.508398,77.4160574,17z/data=!4m14!1m7!3m6!1s0x390ce94f9081bf2f:0xe6f4ae2d6e0a6799!2sithub+computer!8m2!3d28.5084255!4d77.4160809!16s%2Fg%2F11vz3xhqrk!3m5!1s0x390ce94f9081bf2f:0xe6f4ae2d6e0a6799!8m2!3d28.5084255!4d77.4160809!16s%2Fg%2F11vz3xhqrk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="IT HUB Computer Location"
-            />
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
+              Visit Our Store
+            </h2>
+            <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+              Find us at our location in Sector 141, Noida. We're here to serve you with all your IT needs.
+            </p>
           </div>
-          <div className="text-center mt-6">
-            <a 
-              href="https://share.google/kLxcyutG0aSRljww9" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <Button className="bg-[#1E40AF] hover:bg-[#3B82F6] text-white font-semibold px-8 py-3">
-                <MapPin className="w-5 h-5 mr-2" />
-                View on Google Maps
-              </Button>
-            </a>
+          
+          <div className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-2xl p-8 md:p-12 text-white text-center">
+            <MapPin className="w-16 h-16 mx-auto mb-6 opacity-90" />
+            <h3 className="text-2xl font-bold mb-4">IT HUB Computer</h3>
+            <p className="text-lg text-blue-100 mb-8 max-w-xl mx-auto">
+              Sector 141, Noida, Uttar Pradesh 201304, India
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="https://maps.app.goo.gl/jS9od4ePFGsdhwa2A" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-white text-[#1E40AF] hover:bg-blue-50 font-semibold px-8 py-4 text-lg shadow-lg w-full sm:w-auto">
+                  <MapPin className="w-5 h-5 mr-2" />
+                  Open in Google Maps
+                </Button>
+              </a>
+              <a href="tel:+919779286917">
+                <Button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg w-full sm:w-auto">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call Us Now
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

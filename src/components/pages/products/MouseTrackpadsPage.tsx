@@ -168,11 +168,11 @@ const MouseTrackpadsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <Card key={index} className="border-none shadow-lg overflow-hidden">
-                <div className="aspect-video overflow-hidden bg-gray-200">
+                <div className="h-48 overflow-hidden bg-gray-100 flex items-center justify-center p-4">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardContent className="p-6">

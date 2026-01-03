@@ -425,11 +425,11 @@ const AllProductsPage = () => {
                     : 'border-transparent'
                 }`}
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden bg-gray-100 flex items-center justify-center p-4 h-48">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                   {product.badge && (
                     <Badge 
