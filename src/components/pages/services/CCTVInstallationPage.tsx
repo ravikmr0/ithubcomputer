@@ -142,7 +142,7 @@ const CCTVInstallationPage = () => {
             </div>
             <div className="hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&q=80" 
+                src="https://i.ytimg.com/vi/sv8suQ4hg7o/maxresdefault.jpg" 
                 alt="CCTV Installation"
                 className="w-[400px] rounded-2xl shadow-2xl"
               />
