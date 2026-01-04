@@ -178,7 +178,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       link: '/services/laptop-desktop-repair',
       badge: 'Most Popular',
       badgeColor: 'bg-emerald-500',
-      image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80',
+      image: 'https://5.imimg.com/data5/RG/VS/ND/SELLER-15278742/computer-repair-services.png',
       details: [
         'Complete hardware diagnostics & troubleshooting',
         'Screen replacement (LCD/LED/OLED)',
@@ -197,7 +197,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       link: '/services/data-recovery',
       badge: '95% Success Rate',
       badgeColor: 'bg-blue-500',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
+      image: 'https://www.nowdatarecovery.com/ndr/wp-content/uploads/2022/05/Data-Recovery-from-Desktop-Laptop-Camera-Hard-Disk-Drives-2-1.jpg',
       details: [
         'Hard drive data recovery (HDD/SSD)',
         'USB & external drive recovery',
@@ -216,7 +216,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       link: '/services/software-installation',
       badge: 'Quick Service',
       badgeColor: 'bg-purple-500',
-      image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80',
+      image: 'https://f5technology.in/wp-content/uploads/2019/06/computer-software-installation-services-mumbai.jpg',
       details: [
         'Windows, Linux & macOS installation',
         'MS Office & productivity software',
@@ -235,7 +235,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       link: '/services/cctv-installation',
       badge: '24/7 Security',
       badgeColor: 'bg-red-500',
-      image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80',
+      image: 'https://aquatechindia.com/wp-content/uploads/2023/08/1.jpg',
       details: [
         'HD & 4K camera installation',
         'DVR/NVR setup & configuration',
@@ -254,7 +254,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       link: '/services/biometric-systems',
       badge: 'Smart Security',
       badgeColor: 'bg-indigo-500',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80',
+      image: 'https://teksun.com/wp-content/uploads/2022/02/Explained-Industrial-Automation-System-and-Its-Hierarchy-Primary-image-1.jpg',
       details: [
         'Fingerprint attendance machines',
         'Face recognition systems',
@@ -273,7 +273,7 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
       link: '/products',
       badge: 'Genuine Parts',
       badgeColor: 'bg-orange-500',
-      image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&q=80',
+      image: 'https://thepcworks.com/wp-content/uploads/2020/04/hardware.jpg',
       details: [
         'RAM upgrades (DDR4/DDR5)',
         'SSD & storage upgrades',
