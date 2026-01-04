@@ -142,7 +142,7 @@ const LaptopDesktopRepairPage = () => {
             </div>
             <div className="hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80" 
+                src="https://thepcworks.com/wp-content/uploads/2020/04/hardware.jpg" 
                 alt="Laptop Repair"
                 className="w-[400px] rounded-2xl shadow-2xl"
               />
