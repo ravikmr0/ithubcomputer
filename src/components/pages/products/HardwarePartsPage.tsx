@@ -105,7 +105,7 @@ const HardwarePartsPage = () => {
       icon: CircuitBoard,
       title: 'Motherboards',
       description: 'Desktop motherboards supporting latest Intel and AMD platforms.',
-      image: 'https://m.media-amazon.com/images/I/71mriqykVaL._SL1500_.jpg',
+      image: 'https://m.media-amazon.com/images/I/81pkavRMiwL._SL1500_.jpg',
       price: 7999,
       originalPrice: 9999,
       features: ['Intel/AMD Chipsets', 'ATX/mATX/ITX', 'DDR4/DDR5', 'PCIe 4.0/5.0']
