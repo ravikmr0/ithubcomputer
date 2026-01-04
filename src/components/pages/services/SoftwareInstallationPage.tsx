@@ -142,7 +142,7 @@ const SoftwareInstallationPage = () => {
             </div>
             <div className="hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=500&q=80" 
+                src="https://www.sbrcomputers.com/assets/images/software-installation-support.png" 
                 alt="Software Installation"
                 className="w-[400px] rounded-2xl shadow-2xl"
               />
