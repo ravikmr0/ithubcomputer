@@ -123,7 +123,7 @@ const HardwarePartsPage = () => {
       icon: Zap,
       title: 'Power Supplies',
       description: 'Reliable PSUs with 80+ certification for stable power delivery.',
-      image: 'https://m.media-amazon.com/images/I/51DaEu8ilvL._SL1500_.jpg',
+      image: 'https://m.media-amazon.com/images/I/719LvK7uHkL._SL1500_.jpg',
       price: 3499,
       originalPrice: 4499,
       features: ['80+ Bronze/Gold', '450W-1000W', 'Modular Options', '5-Year Warranty']
@@ -132,7 +132,7 @@ const HardwarePartsPage = () => {
       icon: Fan,
       title: 'Cooling Systems',
       description: 'CPU coolers and case fans for optimal thermal performance.',
-      image: 'https://m.media-amazon.com/images/I/61ujVKXwkVL._SL1000_.jpg',
+      image: 'https://m.media-amazon.com/images/I/6163IucoYIL._SL1500_.jpg',
       price: 1999,
       originalPrice: 2999,
       features: ['Air/Liquid Cooling', 'RGB Options', 'Quiet Operation', 'Easy Install']
