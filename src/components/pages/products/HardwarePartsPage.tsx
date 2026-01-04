@@ -114,7 +114,7 @@ const HardwarePartsPage = () => {
       icon: HardDrive,
       title: 'Graphics Cards',
       description: 'NVIDIA and AMD graphics cards for gaming and professional work.',
-      image: 'https://m.media-amazon.com/images/I/510+J06fz0L._SL1000_.jpg',
+      image: 'https://m.media-amazon.com/images/I/81nMCi1QCAL._SL1500_.jpg',
       price: 25999,
       originalPrice: 32999,
       features: ['NVIDIA RTX Series', 'AMD Radeon', 'Ray Tracing', 'DLSS Support']
