@@ -222,7 +222,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Dell Inspiron 15',
         description: 'Intel Core i5 12th Gen, 8GB RAM, 512GB SSD, 15.6" FHD Display',
-        image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/712WiT-wexL._SL1500_.jpg',
         price: 52999,
         originalPrice: 64999,
         brand: 'Dell',
@@ -232,7 +232,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'ASUS ROG Gaming',
         description: 'AMD Ryzen 7, RTX 3060, 16GB RAM, 1TB SSD, 165Hz Display',
-        image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71PYcEAwWgL._SL1500_.jpg',
         price: 94999,
         originalPrice: 119999,
         brand: 'ASUS',
@@ -242,7 +242,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'HP Pro Tower',
         description: 'Intel Core i7, 16GB RAM, 512GB SSD, Windows 11 Pro',
-        image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/61d7NgG-qjL._SL1024_.jpg',
         price: 45999,
         originalPrice: 55999,
         brand: 'HP',
@@ -254,7 +254,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Corsair Vengeance 16GB',
         description: 'DDR5 5600MHz, RGB, Dual Channel Kit for Gaming',
-        image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/51W4+1Da0IL._SL1000_.jpg',
         price: 8499,
         originalPrice: 10999,
         brand: 'Corsair',
@@ -264,7 +264,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Samsung 980 Pro 1TB',
         description: 'NVMe M.2 SSD, 7000MB/s Read, PCIe Gen 4.0',
-        image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71XHEQZZW+L._SL1500_.jpg',
         price: 9999,
         originalPrice: 13999,
         brand: 'Samsung',
@@ -274,7 +274,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'RTX 4070 Super',
         description: '12GB GDDR6X, DLSS 3, Ray Tracing, 4K Gaming',
-        image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71Vzke7w3zL._SL1500_.jpg',
         price: 62999,
         originalPrice: 74999,
         brand: 'NVIDIA',
@@ -286,7 +286,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Logitech MX Master 3S',
         description: 'Wireless, 8K DPI, USB-C, Multi-Device, Quiet Clicks',
-        image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg',
         price: 8999,
         originalPrice: 11999,
         brand: 'Logitech',
@@ -296,7 +296,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'LG UltraWide 34"',
         description: 'QHD 3440x1440, 160Hz, HDR400, USB-C 90W',
-        image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71XGRx7xFEL._SL1500_.jpg',
         price: 42999,
         originalPrice: 54999,
         brand: 'LG',
@@ -306,7 +306,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Keychron K8 Pro',
         description: 'Wireless Mechanical, Hot-Swappable, RGB, Mac/Windows',
-        image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71P7yVNW3dL._SL1500_.jpg',
         price: 9499,
         originalPrice: 12499,
         brand: 'Keychron',
@@ -318,7 +318,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'TP-Link Archer AX73',
         description: 'WiFi 6, AX5400, Dual Band, 6 Antennas, 200+ Devices',
-        image: 'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71lzPkpQKuL._SL1500_.jpg',
         price: 8999,
         originalPrice: 11999,
         brand: 'TP-Link',
@@ -328,7 +328,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Cisco SG350-28',
         description: '28-Port Managed Switch, PoE+, Gigabit, Enterprise',
-        image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71LDIuULkPL._SL1500_.jpg',
         price: 24999,
         originalPrice: 32999,
         brand: 'Cisco',
@@ -338,7 +338,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Cat6A Cable Bundle',
         description: '10Gbps, 50m Roll, Shielded, Indoor/Outdoor',
-        image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/81mSjMHpQDL._SL1500_.jpg',
         price: 2499,
         originalPrice: 3499,
         brand: 'D-Link',
@@ -350,7 +350,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Hikvision 4K Dome',
         description: '8MP, ColorVu, Night Vision, IP67, Smart Detection',
-        image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/71FYIw6Dr3L._SL1480_.jpg',
         price: 5999,
         originalPrice: 7999,
         brand: 'Hikvision',
@@ -360,7 +360,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'Dahua 8CH NVR',
         description: '4K Output, 8 PoE Ports, AI Detection, 8TB Support',
-        image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/51AVP7+o2vS._SL1500_.jpg',
         price: 18999,
         originalPrice: 24999,
         brand: 'Dahua',
@@ -370,7 +370,7 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
       {
         title: 'ZKTeco SpeedFace',
         description: 'Face + Fingerprint, 6000 Users, Access Control',
-        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80',
+        image: 'https://m.media-amazon.com/images/I/516tuabvE3L.jpg',
         price: 24999,
         originalPrice: 32999,
         brand: 'ZKTeco',
