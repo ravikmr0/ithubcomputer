@@ -167,13 +167,15 @@ const DesktopComputersPage = () => {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <Card key={index} className="border-none shadow-lg overflow-hidden">
-                <div className="h-48 overflow-hidden bg-gray-100 flex items-center justify-center p-4">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                  />
+              <Card key={index} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
+                <div className="relative h-48 overflow-hidden bg-white border-b border-gray-100">
+                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="font-display text-xl font-bold text-[#1F2937] mb-2">

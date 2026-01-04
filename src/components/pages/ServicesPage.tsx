@@ -394,15 +394,16 @@ ${quoteForm.message.trim() ? `💬 *Message:*\n${quoteForm.message.trim()}` : ''
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={index} className="group border-none shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 bg-white">
+                <Card key={index} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
                   {/* Image Header */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div className="relative h-48 overflow-hidden bg-white border-b border-gray-100">
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                     <Badge className={`absolute top-4 right-4 ${service.badgeColor} text-white border-0 shadow-lg`}>
                       {service.badge}
                     </Badge>

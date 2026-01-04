@@ -593,14 +593,15 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
             <TabsContent value="all">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filterProductsByBrand(allProducts).map((product, index) => (
-                  <Card key={index} className="group border-none shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 bg-white">
-                    <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <Card key={index} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
+                    <div className="relative aspect-video overflow-hidden bg-white border-b border-gray-100">
+                      <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
                       {product.badge && (
                         <Badge className="absolute top-3 left-3 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white border-0 shadow-lg">
                           {product.badge}
@@ -653,14 +654,15 @@ ${leadForm.message.trim() ? `💬 *Message:*\n${leadForm.message.trim()}` : ''}
               <TabsContent key={category.id} value={category.id}>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filterProductsByBrand(products[category.id as keyof typeof products]).map((product, index) => (
-                    <Card key={index} className="group border-none shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 bg-white">
-                      <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                        <img
-                          src={product.image}
-                          alt={product.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <Card key={index} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
+                      <div className="relative aspect-video overflow-hidden bg-white border-b border-gray-100">
+                        <div className="absolute inset-0 flex items-center justify-center p-6">
+                          <img
+                            src={product.image}
+                            alt={product.title}
+                            className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
                         {product.badge && (
                           <Badge className="absolute top-3 left-3 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white border-0 shadow-lg">
                             {product.badge}

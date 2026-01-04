@@ -735,14 +735,16 @@ const HomePage = () => {
             {products.map((product) => (
               <Link to={product.path} key={product.id}>
                 <Card 
-                  className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white h-full"
+                  className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl h-full"
                 >
-                <div className="relative overflow-hidden bg-gray-100 flex items-center justify-center p-4 h-48">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="relative h-48 overflow-hidden bg-white border-b border-gray-100">
+                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                   {product.badge && (
                     <Badge 
                       className={`absolute top-3 left-3 ${
