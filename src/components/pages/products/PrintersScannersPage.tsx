@@ -160,13 +160,15 @@ const PrintersScannersPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product) => (
-              <Card key={product.id} className="group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white">
-                <div className="relative overflow-hidden bg-gray-100 flex items-center justify-center p-4 h-48">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
+              <Card key={product.id} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
+                <div className="relative h-64 overflow-hidden bg-white border-b border-gray-100">
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                   <Badge className="absolute top-3 left-3 bg-[#3B82F6]">{product.badge}</Badge>
                   {product.originalPrice > product.price && (
                     <Badge className="absolute top-3 right-3 bg-green-500">

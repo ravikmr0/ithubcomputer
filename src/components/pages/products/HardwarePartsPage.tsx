@@ -195,13 +195,15 @@ const HardwarePartsPage = () => {
             {categories.map((product, index) => {
               const Icon = product.icon;
               return (
-                <Card key={index} className="border-none shadow-lg overflow-hidden">
-                  <div className="h-48 overflow-hidden bg-gray-100 flex items-center justify-center p-4">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                    />
+                <Card key={index} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
+                  <div className="relative h-64 overflow-hidden bg-white border-b border-gray-100">
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-3">
