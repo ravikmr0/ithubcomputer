@@ -142,7 +142,7 @@ const DataRecoveryPage = () => {
             </div>
             <div className="hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80" 
+                src="https://www.fonelab.com/images/data-retriever/windows-data-recovery.jpg" 
                 alt="Data Recovery"
                 className="w-[400px] rounded-2xl shadow-2xl"
               />
