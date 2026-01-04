@@ -46,7 +46,7 @@ const AudioEquipmentPage = () => {
       originalPrice: 29999,
       rating: 4.8,
       reviews: 412,
-      image: 'https://m.media-amazon.com/images/I/51eWD-iJ1zL._SL1200_.jpg',
+      image: 'https://m.media-amazon.com/images/I/513LCPDEWKL._SL1500_.jpg',
       badge: 'Premium',
       features: ['CustomTune Technology', 'ANC', '6hr Battery'],
     },
