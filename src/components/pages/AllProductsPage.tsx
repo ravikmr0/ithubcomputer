@@ -425,8 +425,8 @@ const AllProductsPage = () => {
                     : 'border-gray-200'
                 }`}
               >
-                <div className="relative h-48 overflow-hidden bg-white border-b border-gray-100">
-                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                <div className="relative h-64 overflow-hidden bg-white border-b border-gray-100">
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
                     <img
                       src={product.image}
                       alt={product.name}

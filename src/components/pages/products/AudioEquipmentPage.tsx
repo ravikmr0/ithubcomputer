@@ -161,8 +161,8 @@ const AudioEquipmentPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product) => (
               <Card key={product.id} className="group border border-gray-200 shadow-sm hover:shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl">
-                <div className="relative h-48 overflow-hidden bg-white border-b border-gray-100">
-                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                <div className="relative h-64 overflow-hidden bg-white border-b border-gray-100">
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
                     <img
                       src={product.image}
                       alt={product.name}
