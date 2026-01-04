@@ -142,7 +142,7 @@ const BiometricSystemsPage = () => {
             </div>
             <div className="hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&q=80" 
+                src="https://m.media-amazon.com/images/I/516tuabvE3L.jpg" 
                 alt="Biometric Systems"
                 className="w-[400px] rounded-2xl shadow-2xl"
               />
