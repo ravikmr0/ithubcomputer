@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Laptop, Monitor, Keyboard, Mouse, HardDrive, MemoryStick, Cpu, Wrench, Camera, Fingerprint, Settings, Database, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Laptop, Monitor, Keyboard, Mouse, HardDrive, MemoryStick, Cpu, Wrench, Camera, Fingerprint, Settings, Database, MessageCircle } from 'lucide-react';
+import { branchLocations, primaryEmail, primaryPhone } from '@/lib/branches';
 
 const Footer = () => {
   const services = [
@@ -108,16 +109,28 @@ const Footer = () => {
               Contact Us
               <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#3B82F6]"></span>
             </h3>
-            <ul className="space-y-4 mt-4">
-              <li className="flex items-start space-x-3">
-                <div className="w-8 h-8 rounded-lg bg-[#374151] flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-[#3B82F6]" />
+            <div className="mt-4 space-y-4">
+              <div className="rounded-2xl border border-gray-700 bg-[#2A3444] p-4">
+                <p className="mb-3 text-sm font-semibold text-white">Our Offices</p>
+                <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-1">
+                  {branchLocations.map((branch) => (
+                    <Link
+                      key={branch.id}
+                      to={branch.id === 'branch-2' ? '/branch-2-sector-104' : '/contact'}
+                      className="rounded-xl border border-gray-600 bg-[#374151] p-3 transition hover:border-[#3B82F6] hover:bg-[#3B82F6]/10"
+                    >
+                      <div className="flex items-start gap-2">
+                        <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#3B82F6]" />
+                        <div>
+                          <p className="text-sm font-semibold text-white">{branch.branchLabel}</p>
+                          <p className="mt-1 text-xs leading-5 text-gray-300">{branch.address}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-                <span className="text-gray-300 text-sm">
-                  Sector 141, Noida, Uttar Pradesh 201304, India
-                </span>
-              </li>
-              <li className="flex items-center space-x-3">
+              </div>
+              <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 rounded-lg bg-[#374151] flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-[#3B82F6]" />
                 </div>
@@ -126,28 +139,22 @@ const Footer = () => {
                     href="tel:+919779286917"
                     className="text-gray-300 hover:text-[#3B82F6] transition-colors text-sm"
                   >
-                    +91 9779286917
-                  </a>
-                  <a
-                    href="tel:+919914690318"
-                    className="text-gray-300 hover:text-[#3B82F6] transition-colors text-sm"
-                  >
-                    +91 9914690318
+                    {primaryPhone}
                   </a>
                 </div>
-              </li>
-              <li className="flex items-center space-x-3">
+              </div>
+              <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 rounded-lg bg-[#374151] flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-[#3B82F6]" />
                 </div>
                 <a
-                  href="mailto:info@ithubcomputer.com"
+                  href={`mailto:${primaryEmail}`}
                   className="text-gray-300 hover:text-[#3B82F6] transition-colors text-sm"
                 >
-                  info@ithubcomputer.com
+                  {primaryEmail}
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
 
             {/* Social Links */}
             <div className="mt-6">

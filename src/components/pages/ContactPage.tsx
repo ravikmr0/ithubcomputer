@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Clock, Navigation } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/select';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
+import { branchLocations, primaryEmail, primaryPhone } from '@/lib/branches';
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -96,15 +97,9 @@ ${formData.message}
 
   const contactInfo = [
     {
-      icon: MapPin,
-      title: 'Address',
-      content: 'Sector 141, Noida, Uttar Pradesh 201304, India',
-      link: 'https://share.google/d3XWH8nuOviYXnm5a',
-    },
-    {
       icon: Phone,
       title: 'Phone',
-      content: '+91 9779286917',
+      content: primaryPhone,
       link: 'tel:+919779286917',
     },
     {
@@ -116,7 +111,7 @@ ${formData.message}
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@ithubcomputer.com',
+      content: primaryEmail,
       link: 'mailto:info@ithubcomputer.com',
     },
   ];
@@ -326,6 +321,31 @@ ${formData.message}
                   </Button>
                 </a>
               </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md">
+                <h3 className="font-display text-xl font-semibold text-[#1F2937] mb-4">
+                  Our Locations
+                </h3>
+                <div className="space-y-3">
+                  {branchLocations.map((branch) => (
+                    <a
+                      key={branch.id}
+                      href={branch.directionsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 transition hover:border-[#3B82F6] hover:bg-blue-50"
+                    >
+                      <div className="mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#1E40AF]/10 text-[#1E40AF]">
+                        <MapPin className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[#1F2937]">{branch.branchLabel}</p>
+                        <p className="text-sm text-[#6B7280]">{branch.address}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -343,30 +363,51 @@ ${formData.message}
             </p>
           </div>
           
-          <div className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-2xl p-8 md:p-12 text-white text-center">
-            <MapPin className="w-16 h-16 mx-auto mb-6 opacity-90" />
-            <h3 className="text-2xl font-bold mb-4">IT HUB Computer</h3>
-            <p className="text-lg text-blue-100 mb-8 max-w-xl mx-auto">
-              Sector 141, Noida, Uttar Pradesh 201304, India
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://maps.app.goo.gl/jS9od4ePFGsdhwa2A" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Button className="bg-white text-[#1E40AF] hover:bg-blue-50 font-semibold px-8 py-4 text-lg shadow-lg w-full sm:w-auto">
-                  <MapPin className="w-5 h-5 mr-2" />
-                  Open in Google Maps
-                </Button>
-              </a>
-              <a href="tel:+919779286917">
-                <Button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg w-full sm:w-auto">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Us Now
-                </Button>
-              </a>
-            </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {branchLocations.map((branch) => (
+              <div key={branch.id} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+                <div className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] p-8 text-white">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-bold">{branch.title}</h3>
+                      <p className="mt-2 text-base text-blue-100">{branch.address}</p>
+                    </div>
+                    <div className="rounded-full bg-white/20 p-3">
+                      <MapPin className="h-6 w-6" />
+                    </div>
+                  </div>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                    <a href={branch.directionsUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button className="w-full bg-white text-[#1E40AF] hover:bg-blue-50 font-semibold px-6 py-4 shadow-lg">
+                        <Navigation className="mr-2 h-5 w-5" />
+                        Get Directions
+                      </Button>
+                    </a>
+                    <a href={branch.phoneHref} className="flex-1">
+                      <Button className="w-full border-2 border-white bg-transparent text-white hover:bg-white/10 font-semibold px-6 py-4">
+                        <Phone className="mr-2 h-5 w-5" />
+                        Call Us
+                      </Button>
+                    </a>
+                    <a href={branch.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button className="w-full border-2 border-white bg-transparent text-white hover:bg-white/10 font-semibold px-6 py-4">
+                        <MessageCircle className="mr-2 h-5 w-5" />
+                        WhatsApp
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+                <div className="aspect-video w-full">
+                  <iframe
+                    title={`${branch.title} location`}
+                    src={branch.mapEmbedUrl}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="h-full w-full border-0"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

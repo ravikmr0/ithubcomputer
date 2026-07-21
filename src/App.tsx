@@ -9,6 +9,7 @@ import ServicesPage from "@/components/pages/ServicesPage";
 import ProductsPage from "@/components/pages/ProductsPage";
 import AllProductsPage from "@/components/pages/AllProductsPage";
 import ContactPage from "@/components/pages/ContactPage";
+import BranchTwoPage from "@/components/pages/BranchTwoPage";
 import { Toaster } from "@/components/ui/toaster";
 import FloatingContactButtons from "@/components/layout/FloatingContactButtons";
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/all-products" element={<AllProductsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/branch-2-sector-104" element={<BranchTwoPage />} />
             
             {/* Service Routes */}
             <Route path="/services/laptop-desktop-repair" element={<LaptopDesktopRepairPage />} />

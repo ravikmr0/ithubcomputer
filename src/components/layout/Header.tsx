@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Phone, Search } from 'lucide-react';
+import { Menu, X, Phone, Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { branchLocations } from '@/lib/branches';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -253,6 +254,22 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-[#252b3d] border-t border-[#3a4052]">
           <nav className="max-w-[1400px] mx-auto px-4 py-4 space-y-2">
+            <div className="rounded-xl border border-[#3a4052] bg-[#1a1f2e] p-3">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400">Our Locations</p>
+              <div className="space-y-2">
+                {branchLocations.map((branch) => (
+                  <Link
+                    key={branch.id}
+                    to={branch.id === 'branch-2' ? '/branch-2-sector-104' : '/contact'}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-start gap-2 rounded-lg bg-[#252b3d] p-2 text-sm text-gray-300 transition hover:bg-[#2f3650]"
+                  >
+                    <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#4a9eff]" />
+                    <span>{branch.branchLabel}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
             {/* Mobile Nav Links */}
             {navLinks.map((link) => (
               <Link
